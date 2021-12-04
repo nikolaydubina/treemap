@@ -12,19 +12,19 @@ import (
 )
 
 const doc string = `
-Generate treemaps from STDIN in header-less CSV as follows:
+Generate treemaps from STDIN in header-less CSV.
 
 </ delimitered path>,<size>,<heat>
 
 Example:
 
-'''csv
-Africa/Algeria,33333216.0,72.301
-Africa/Angola,12420476.0,42.731
-Africa/Benin,8078314.0,56.728
-'''
+$ echo '
+Africa/Algeria,33333216,72
+Africa/Angola,12420476,42
+Africa/Benin,8078314,56
+' | treemap > out.svg
 
-$ cat file.csv | treemap > out.svg
+Command options:
 `
 
 func main() {
