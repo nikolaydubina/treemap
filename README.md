@@ -11,13 +11,13 @@ Africa/Benin,8078314,56
 
 Default options
 ```
-$ cat testdata/gapminder-2007-population-life.csv | ./treemap > docs/gapminder-2007-population-life.svg
+$ ... | treemap > out.svg
 ```
 ![example-1](./docs/gapminder-2007-population-life.svg)
 
 Adjusting size
 ```
-$ cat testdata/gapminder-2007-population-life.csv | ./treemap -w 1080 -h 640 > docs/gapminder-2007-population-life-1080x640.svg
+$ ... | treemap -w 1080 -h 640 > out.svg
 ```
 ![example-2](./docs/gapminder-2007-population-life-1080x640.svg)
 
