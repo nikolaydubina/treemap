@@ -25,16 +25,35 @@ type UIText struct {
 
 // UIBox is spec on how to render a box. Could be Root.
 type UIBox struct {
-	Title    *UIText
-	X        float64
-	Y        float64
-	W        float64
-	H        float64
-	Children []UIBox
+	Title       *UIText
+	X           float64
+	Y           float64
+	W           float64
+	H           float64
+	Children    []UIBox
+	IsInvisible bool
+	IsRoot      bool
 }
 
 func (f UIBox) IsEmpty() bool {
 	return f.W == 0 || f.H == 0
+}
+
+func NewUITreeMap(tree treemap.Tree, w, h, margin, padding, paddingRoot float64) UIBox {
+	t := UIBox{
+		X:           0 + paddingRoot,
+		Y:           0 + paddingRoot,
+		W:           w - (2 * paddingRoot),
+		H:           h - (2 * paddingRoot),
+		IsInvisible: true,
+		IsRoot:      true,
+	}
+
+	t.Children = []UIBox{
+		NewUIBox(tree.Root, tree, t.X, t.Y, t.W, t.H, margin, padding),
+	}
+
+	return t
 }
 
 func NewUIBox(node string, tree treemap.Tree, x, y, w, h, margin float64, padding float64) UIBox {
