@@ -3,8 +3,6 @@ package treemap
 import (
 	"fmt"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestSquarifyStackBoxesVertical(t *testing.T) {
@@ -82,7 +80,12 @@ func TestSquarifyStackBoxesVertical(t *testing.T) {
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			tc.layout.stackBoxesVertical(tc.areas)
-			assert.Equal(t, tc.expLayout, tc.layout)
+			if !eqSliceBox(tc.expLayout.boxes, tc.layout.boxes) {
+				t.Errorf("wrong boxes: exp(%#v) != got(%#v)", tc.expLayout.boxes, tc.layout.boxes)
+			}
+			if tc.expLayout.freeSpace != tc.layout.freeSpace {
+				t.Errorf("wrong free space: exp(%#v) != got(%#v)", tc.expLayout.freeSpace, tc.layout.freeSpace)
+			}
 		})
 	}
 }
@@ -162,7 +165,12 @@ func TestSquarifyStackBoxesHorizontal(t *testing.T) {
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			tc.layout.stackBoxesHorizontal(tc.areas)
-			assert.Equal(t, tc.expLayout, tc.layout)
+			if !eqSliceBox(tc.expLayout.boxes, tc.layout.boxes) {
+				t.Errorf("wrong boxes: exp(%#v) != got(%#v)", tc.expLayout.boxes, tc.layout.boxes)
+			}
+			if tc.expLayout.freeSpace != tc.layout.freeSpace {
+				t.Errorf("wrong free space: exp(%#v) != got(%#v)", tc.expLayout.freeSpace, tc.layout.freeSpace)
+			}
 		})
 	}
 }

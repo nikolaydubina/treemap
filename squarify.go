@@ -13,6 +13,7 @@ type Box struct {
 }
 
 // Squarify partitions box into parts by using Squarify algorithm.
+// Returns boxes in same order as areas.
 // As described in "Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000
 func Squarify(box Box, areas []float64) []Box {
 	// sort
