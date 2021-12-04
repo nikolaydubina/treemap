@@ -1,25 +1,45 @@
 package treemap
 
-type UIBox struct {
-	Title      string
-	X          float64
-	Y          float64
-	W          float64
-	H          float64
-	TextHeight float64 // ratio of height we leave for text
-	Padding    float64 // ratio of height and width we spend for padding node contents (including text and inner boxes)
-	Children   []UIBox
+// UIText is spec on how to render text.
+type UIText struct {
+	Text  string
+	X     float64
+	Y     float64
+	H     float64
+	W     float64
+	Scale float64
 }
 
-func NewUIBox(node string, tree Tree, x, y, w, h, textHeight, padding float64) UIBox {
+// UIBox is spec on how to render a box. Could be Root.
+type UIBox struct {
+	Title    *UIText
+	X        float64
+	Y        float64
+	W        float64
+	H        float64
+	Children []UIBox
+}
+
+func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float64) UIBox {
 	t := UIBox{
-		Title:      tree.Nodes[node].Name(),
-		X:          x,
-		Y:          y,
-		W:          w,
-		H:          h,
-		TextHeight: textHeight,
-		Padding:    padding,
+		X: x + margin,
+		Y: y + margin,
+		W: w - (2 * margin),
+		H: h - (2 * margin),
+	}
+
+	var textHeight float64
+	if title := tree.Nodes[node].Name(); title != "" {
+		// TODO: estimation of text length
+		textHeight = 20
+		t.Title = &UIText{
+			Text:  title,
+			X:     t.X + padding,
+			Y:     t.Y + padding + textHeight,
+			W:     t.W - (2 * padding),
+			H:     textHeight,
+			Scale: textHeight / 12,
+		}
 	}
 
 	if len(tree.To[node]) == 0 {
@@ -32,14 +52,17 @@ func NewUIBox(node string, tree Tree, x, y, w, h, textHeight, padding float64) U
 	}
 
 	childrenContainer := Box{
-		X: x + (w * padding),
-		Y: y + (h * padding) + (h * textHeight),
-		W: w * (1 - (2 * padding)),
-		H: h * (1 - (2 * padding) - textHeight),
+		X: t.X + padding,
+		Y: t.Y + padding + textHeight,
+		W: t.W - (2 * padding),
+		H: t.H - (2 * padding) - textHeight,
 	}
 	boxes := Squarify(childrenContainer, areas)
 
 	for i, toPath := range tree.To[node] {
+		if boxes[i] == NilBox {
+			continue
+		}
 		box := NewUIBox(
 			toPath,
 			tree,
@@ -47,7 +70,7 @@ func NewUIBox(node string, tree Tree, x, y, w, h, textHeight, padding float64) U
 			boxes[i].Y,
 			boxes[i].W,
 			boxes[i].H,
-			textHeight,
+			margin,
 			padding,
 		)
 		t.Children = append(t.Children, box)
@@ -60,7 +83,6 @@ func nodeSize(tree Tree, node string) float64 {
 	if n, ok := tree.Nodes[node]; ok {
 		return n.Size
 	}
-
 	var s float64
 	for _, child := range tree.To[node] {
 		s += nodeSize(tree, child)

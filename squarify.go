@@ -12,6 +12,8 @@ type Box struct {
 	H float64
 }
 
+var NilBox Box = Box{}
+
 type wrappedArea struct {
 	i    int
 	area float64

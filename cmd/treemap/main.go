@@ -18,8 +18,10 @@ TODO 1
 
 func main() {
 	var (
-		w float64
-		h float64
+		w       float64
+		h       float64
+		margin  float64
+		padding float64
 	)
 
 	flag.Usage = func() {
@@ -28,6 +30,8 @@ func main() {
 	}
 	flag.Float64Var(&w, "w", 1028, "width of output")
 	flag.Float64Var(&h, "h", 1028, "height of output")
+	flag.Float64Var(&margin, "margin", 5, "margin between boxes")
+	flag.Float64Var(&padding, "padding", 5, "padding between box border and content")
 	flag.Parse()
 
 	in, err := io.ReadAll(os.Stdin)
@@ -41,7 +45,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	spec := treemap.NewUIBox(tree.Root, *tree, 0, 0, w, h, 0.2, 0.05)
+	spec := treemap.NewUIBox(tree.Root, *tree, 0, 0, w, h, margin, padding)
 	renderer := treemap.SVGRenderer{}
 
 	os.Stdout.Write(renderer.Render(spec))
