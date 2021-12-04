@@ -36,7 +36,7 @@ func parseNodes(in string) ([]treemap.Node, error) {
 			break
 		}
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("can not parse: %w", err)
 		}
 
 		if len(record) == 0 {

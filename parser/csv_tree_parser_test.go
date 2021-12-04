@@ -161,6 +161,72 @@ func TestMakeTree(t *testing.T) {
 	}
 }
 
+func TestParseNodes(t *testing.T) {
+	tests := []struct {
+		name     string
+		in       string
+		expNodes []treemap.Node
+		expErr   string
+	}{
+		{
+			name: "when basic case, then works",
+			in:   "a/b/c,10,11",
+			expNodes: []treemap.Node{
+				{
+					Path: "a/b/c",
+					Size: 10,
+					Heat: 11,
+				},
+			},
+		},
+		{
+			name:   "when wrong number, then error",
+			in:     ",,\n\n",
+			expErr: "is not float",
+		},
+		{
+			name:   "when wrong number, then error",
+			in:     ",1,\n\n",
+			expErr: "is not float",
+		},
+		{
+			name:   "when wrong quotation, then error",
+			in:     "\"\n\n",
+			expErr: "can not parse",
+		},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			nodes, err := parseNodes(tc.in)
+
+			assertError(t, err, tc.expErr)
+
+			if len(tc.expNodes) != len(nodes) {
+				t.Error("wrong len")
+			}
+			for i := range nodes {
+				if tc.expNodes[i] != nodes[i] {
+					t.Error("wrong node")
+				}
+			}
+		})
+	}
+}
+
+func assertError(t *testing.T, err error, expErr string) {
+	if expErr == "" && err != nil {
+		t.Error(err)
+	}
+	if expErr != "" {
+		if err == nil {
+			t.Error("expected error, got nil")
+		}
+		if !strings.Contains(err.Error(), expErr) {
+			t.Errorf("error does not contain expected string got(%s)", err)
+		}
+	}
+}
+
 func eqTree(a, b treemap.Tree) bool {
 	if a.Root != b.Root {
 		return false
