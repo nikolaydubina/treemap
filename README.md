@@ -13,4 +13,4 @@ Pretty Treemaps
 * Squerified in Rust: https://github.com/bacongobbler/treemap-rs
 * Squerified in JavaScript: https://github.com/clementbat/treemap
 * Squerified in Python: https://github.com/laserson/squarify
-* Treemap Go version (no SVG, no squerify): https://github.com/willpoint/treemap
+* Treemap Go tool: https://github.com/willpoint/treemap
