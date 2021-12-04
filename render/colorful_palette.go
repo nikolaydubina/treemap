@@ -1,7 +1,10 @@
 package render
 
 import (
+	_ "embed"
 	"image/color"
+	"strconv"
+	"strings"
 
 	"github.com/lucasb-eyer/go-colorful"
 )
@@ -32,31 +35,33 @@ func (gt ColorfulPalette) GetInterpolatedColorFor(t float64) color.Color {
 	return gt[len(gt)-1].Col
 }
 
-func MustParseHex(s string) colorful.Color {
-	c, err := colorful.Hex(s)
-	if err != nil {
-		panic("MustParseHex: " + err.Error())
+//go:embed palettes/ReBu.csv
+var paletteReBuCSV string
+
+func makePaletteFromCSV(csv string) ColorfulPalette {
+	rows := strings.Split(csv, "\n")
+	palette := make(ColorfulPalette, len(rows))
+
+	for i, row := range rows {
+		parts := strings.Split(row, ",")
+		if len(parts) != 2 {
+			continue
+		}
+
+		c, _ := colorful.Hex(parts[0])
+		v, _ := strconv.ParseFloat(parts[1], 64)
+
+		palette[i].Col = c
+		palette[i].Pos = v
 	}
-	return c
+
+	return palette
 }
 
 func GetPalette(name string) (ColorfulPalette, bool) {
 	switch name {
 	case "RdBu":
-		p := ColorfulPalette{
-			{MustParseHex("#67001f"), 0.00},
-			{MustParseHex("#b2182b"), 0.10},
-			{MustParseHex("#d6604d"), 0.20},
-			{MustParseHex("#f4a482"), 0.30},
-			{MustParseHex("#fddbc7"), 0.40},
-			{MustParseHex("#f7f7f7"), 0.50},
-			{MustParseHex("#d1e5f0"), 0.60},
-			{MustParseHex("#92c5de"), 0.70},
-			{MustParseHex("#4393c3"), 0.80},
-			{MustParseHex("#2166ac"), 0.90},
-			{MustParseHex("#053061"), 1.00},
-		}
-		return p, true
+		return makePaletteFromCSV(paletteReBuCSV), true
 	default:
 		return nil, false
 	}
