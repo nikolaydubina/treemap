@@ -10,12 +10,8 @@ $ echo '
 Africa/Algeria,33333216,72
 Africa/Angola,12420476,42
 Africa/Benin,8078314,56
+...
 ' | treemap > out.svg
-```
-
-Default options
-```bash
-$ ... | treemap > out.svg
 ```
 ![example](./docs/gapminder-2007-population-life.svg)
 
