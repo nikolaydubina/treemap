@@ -15,6 +15,12 @@ $ ... | treemap > out.svg
 ```
 ![example-1](./docs/gapminder-2007-population-life.svg)
 
+Without color
+```
+$ ... | treemap -color none > out.svg
+```
+![example-2](./docs/gapminder-2007-population-life-nocolor.svg)
+
 Adjusting size
 ```
 $ ... | treemap -w 1080 -h 1080 > out.svg
