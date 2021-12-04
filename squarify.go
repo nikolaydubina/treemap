@@ -1,0 +1,191 @@
+package treemap
+
+import (
+	"math"
+	"sort"
+)
+
+type Box struct {
+	X float64
+	Y float64
+	W float64
+	H float64
+}
+
+// Squarify partitions box into parts by using Squarify algorithm.
+// As described in "Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000
+func Squarify(box Box, areas []float64) []Box {
+	// sort
+	sortedAreas := make([]float64, len(areas))
+	copy(sortedAreas, areas)
+	sort.Slice(sortedAreas, func(i, j int) bool { return sortedAreas[i] > sortedAreas[j] })
+
+	// normalize
+	var totalArea float64
+	for _, s := range sortedAreas {
+		totalArea += s
+	}
+	if boxArea := box.W * box.H; totalArea != boxArea {
+		for i, s := range sortedAreas {
+			sortedAreas[i] = boxArea * s / totalArea
+		}
+	}
+
+	layout := squarifyBoxLayout{
+		boxes:     nil,
+		freeSpace: box,
+	}
+
+	layout.squarify(sortedAreas, nil, math.Min(layout.freeSpace.W, layout.freeSpace.H))
+
+	return layout.boxes
+}
+
+// squarifyBoxLayout defines how to partition BoundingBox into boxes
+type squarifyBoxLayout struct {
+	boxes     []Box // fixed boxes that have been positioned and sized already
+	freeSpace Box   // free space that is left. will be used to fill out with new boxes
+}
+
+// squarify expects normalized areas that add up to free space
+func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, rowAreas []float64, w float64) {
+	if len(unassignedAreas) == 0 {
+		l.stackBoxes(rowAreas, 0)
+		return
+	}
+
+	if len(rowAreas) == 0 {
+		l.squarify(unassignedAreas[1:], []float64{unassignedAreas[0]}, w)
+		return
+	}
+
+	c := unassignedAreas[0]
+	if rowc := append(rowAreas, c); highestAspectRatio(rowAreas, w) > highestAspectRatio(rowc, w) {
+		// aspect ratio improves, add it to current row
+		l.squarify(unassignedAreas[1:], rowc, w)
+	} else {
+		// aspect ratio does not improve
+
+		// fix row
+		var leaveArea float64
+		for _, s := range unassignedAreas {
+			leaveArea += s
+		}
+		l.stackBoxes(rowAreas, leaveArea)
+
+		// start new row
+		l.squarify(unassignedAreas, nil, math.Min(l.freeSpace.W, l.freeSpace.H))
+	}
+}
+
+// stackBoxes makes new boxes accordingly to areas and fix them into freeSpacelayout within bounding box
+func (l *squarifyBoxLayout) stackBoxes(rowAreas []float64, leaveArea float64) {
+	if l.freeSpace.W < l.freeSpace.H {
+		l.stackBoxesHorizontal(rowAreas, leaveArea)
+	} else {
+		l.stackBoxesVertical(rowAreas, leaveArea)
+	}
+}
+
+// stackBoxesVertical takes vertical chunk of free space of bounding box and partitiones it into areas
+func (l *squarifyBoxLayout) stackBoxesVertical(areas []float64, leaveArea float64) {
+	if len(areas) == 0 {
+		return
+	}
+
+	stackArea := 0.0
+	for _, s := range areas {
+		stackArea += s
+	}
+	if stackArea == 0 {
+		return
+	}
+
+	totalArea := l.freeSpace.W * l.freeSpace.H
+	if totalArea == 0 {
+		return
+	}
+
+	// stack
+	offset := l.freeSpace.Y
+	for _, s := range areas {
+		h := l.freeSpace.H * s / stackArea
+		b := Box{
+			X: l.freeSpace.X,
+			W: l.freeSpace.W * stackArea / totalArea,
+			Y: offset,
+			H: h,
+		}
+		offset += h
+		l.boxes = append(l.boxes, b)
+	}
+
+	// shrink free space
+	l.freeSpace = Box{
+		X: l.freeSpace.X + (l.freeSpace.W * leaveArea / totalArea),
+		W: l.freeSpace.W * leaveArea / totalArea,
+		Y: l.freeSpace.Y,
+		H: l.freeSpace.H,
+	}
+}
+
+// stackBoxesHorizontal takes horizontal chunk of free space of bounding box and partitiones it into areas
+func (l *squarifyBoxLayout) stackBoxesHorizontal(areas []float64, leaveArea float64) {
+	if len(areas) == 0 {
+		return
+	}
+
+	stackArea := 0.0
+	for _, s := range areas {
+		stackArea += s
+	}
+	if stackArea == 0 {
+		return
+	}
+
+	totalArea := l.freeSpace.W * l.freeSpace.H
+	if totalArea == 0 {
+		return
+	}
+
+	// stack
+	offset := l.freeSpace.X
+	for _, s := range areas {
+		w := l.freeSpace.W * s / stackArea
+		b := Box{
+			X: offset,
+			W: w,
+			Y: l.freeSpace.Y,
+			H: l.freeSpace.H * stackArea / totalArea,
+		}
+		offset += w
+		l.boxes = append(l.boxes, b)
+	}
+
+	// shrink free space
+	l.freeSpace = Box{
+		X: l.freeSpace.X,
+		W: l.freeSpace.W,
+		Y: l.freeSpace.Y + (l.freeSpace.H * leaveArea / totalArea),
+		H: l.freeSpace.H * leaveArea / totalArea,
+	}
+}
+
+// highestAspectRatio of a list of rectangles's areas, given the length of the side along which they are to be laid out
+func highestAspectRatio(areas []float64, w float64) float64 {
+	var minArea, maxArea, totalArea float64
+	for i, s := range areas {
+		totalArea += s
+		if i == 0 || s < minArea {
+			minArea = s
+		}
+		if i == 0 || s > maxArea {
+			maxArea = s
+		}
+	}
+
+	v1 := w * w * maxArea / (totalArea * totalArea)
+	v2 := totalArea * totalArea / (w * w * minArea)
+
+	return math.Max(v1, v2)
+}
