@@ -23,7 +23,7 @@ $ ... | treemap -w 1080 -h 640 > out.svg
 
 ## Format
 
-Size is required. Heat is optional. For more customizations  
+Size is required. Heat is optional. For more customizations invoke Go packages in your code. 
 
 ```
 </ delimitered path>,<size>,<heat>
