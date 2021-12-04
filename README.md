@@ -9,8 +9,17 @@ Africa/Benin,8078314,56
 ' | treemap > out.svg
 ```
 
-World population and life expectancy
+Default options
+```bash
+$ cat testdata/gapminder-2007-population-life.csv | ./treemap > docs/gapminder-2007-population-life.svg
+```
 ![example-1](./docs/gapminder-2007-population-life.svg)
+
+Adjusting size
+```bash
+$ cat testdata/gapminder-2007-population-life.csv | ./treemap -w 1080 -h 640 > docs/gapminder-2007-population-life-1080x640.svg
+```
+![example-2](./docs/gapminder-2007-population-life-1080x640.svg)
 
 ## Format
 
