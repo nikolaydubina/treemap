@@ -50,7 +50,7 @@ type squarifyBoxLayout struct {
 // squarify expects normalized areas that add up to free space
 func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, rowAreas []float64, w float64) {
 	if len(unassignedAreas) == 0 {
-		l.stackBoxes(rowAreas, 0)
+		l.stackBoxes(rowAreas)
 		return
 	}
 
@@ -65,30 +65,22 @@ func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, rowAreas []float
 		l.squarify(unassignedAreas[1:], rowc, w)
 	} else {
 		// aspect ratio does not improve
-
-		// fix row
-		var leaveArea float64
-		for _, s := range unassignedAreas {
-			leaveArea += s
-		}
-		l.stackBoxes(rowAreas, leaveArea)
-
-		// start new row
+		l.stackBoxes(rowAreas)
 		l.squarify(unassignedAreas, nil, math.Min(l.freeSpace.W, l.freeSpace.H))
 	}
 }
 
 // stackBoxes makes new boxes accordingly to areas and fix them into freeSpacelayout within bounding box
-func (l *squarifyBoxLayout) stackBoxes(rowAreas []float64, leaveArea float64) {
+func (l *squarifyBoxLayout) stackBoxes(rowAreas []float64) {
 	if l.freeSpace.W < l.freeSpace.H {
-		l.stackBoxesHorizontal(rowAreas, leaveArea)
+		l.stackBoxesHorizontal(rowAreas)
 	} else {
-		l.stackBoxesVertical(rowAreas, leaveArea)
+		l.stackBoxesVertical(rowAreas)
 	}
 }
 
 // stackBoxesVertical takes vertical chunk of free space of bounding box and partitiones it into areas
-func (l *squarifyBoxLayout) stackBoxesVertical(areas []float64, leaveArea float64) {
+func (l *squarifyBoxLayout) stackBoxesVertical(areas []float64) {
 	if len(areas) == 0 {
 		return
 	}
@@ -122,15 +114,15 @@ func (l *squarifyBoxLayout) stackBoxesVertical(areas []float64, leaveArea float6
 
 	// shrink free space
 	l.freeSpace = Box{
-		X: l.freeSpace.X + (l.freeSpace.W * leaveArea / totalArea),
-		W: l.freeSpace.W * leaveArea / totalArea,
+		X: l.freeSpace.X + (l.freeSpace.W * stackArea / totalArea),
+		W: l.freeSpace.W * (1 - (stackArea / totalArea)),
 		Y: l.freeSpace.Y,
 		H: l.freeSpace.H,
 	}
 }
 
 // stackBoxesHorizontal takes horizontal chunk of free space of bounding box and partitiones it into areas
-func (l *squarifyBoxLayout) stackBoxesHorizontal(areas []float64, leaveArea float64) {
+func (l *squarifyBoxLayout) stackBoxesHorizontal(areas []float64) {
 	if len(areas) == 0 {
 		return
 	}
@@ -166,8 +158,8 @@ func (l *squarifyBoxLayout) stackBoxesHorizontal(areas []float64, leaveArea floa
 	l.freeSpace = Box{
 		X: l.freeSpace.X,
 		W: l.freeSpace.W,
-		Y: l.freeSpace.Y + (l.freeSpace.H * leaveArea / totalArea),
-		H: l.freeSpace.H * leaveArea / totalArea,
+		Y: l.freeSpace.Y + (l.freeSpace.H * stackArea / totalArea),
+		H: l.freeSpace.H * (1 - (stackArea / totalArea)),
 	}
 }
 

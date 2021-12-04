@@ -77,8 +77,7 @@ func TestSquarifystackBoxesVertical(t *testing.T) {
 			layout: squarifyBoxLayout{
 				freeSpace: Box{W: 0, H: 4},
 			},
-			areas:     []float64{1},
-			leaveArea: 1,
+			areas: []float64{1},
 			expLayout: squarifyBoxLayout{
 				freeSpace: Box{W: 0, H: 4},
 			},
@@ -86,7 +85,7 @@ func TestSquarifystackBoxesVertical(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			tc.layout.stackBoxesVertical(tc.areas, tc.leaveArea)
+			tc.layout.stackBoxesVertical(tc.areas)
 			assert.Equal(t, tc.expLayout, tc.layout)
 		})
 	}
@@ -162,8 +161,7 @@ func TestSquarifystackBoxesHorizontal(t *testing.T) {
 			layout: squarifyBoxLayout{
 				freeSpace: Box{W: 0, H: 4},
 			},
-			areas:     []float64{1},
-			leaveArea: 1,
+			areas: []float64{1},
 			expLayout: squarifyBoxLayout{
 				freeSpace: Box{W: 0, H: 4},
 			},
@@ -171,7 +169,7 @@ func TestSquarifystackBoxesHorizontal(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			tc.layout.stackBoxesHorizontal(tc.areas, tc.leaveArea)
+			tc.layout.stackBoxesHorizontal(tc.areas)
 			assert.Equal(t, tc.expLayout, tc.layout)
 		})
 	}
@@ -221,9 +219,9 @@ func TestSquarify(t *testing.T) {
 				{X: 0, Y: 2, W: 3, H: 2},                                                      // stack-1 vertical
 				{X: 3, Y: 0, W: 1.7142857142857142, H: 2.3333333333333335},                    // stack-2 horizontal
 				{X: 4.714285714285714, Y: 0, W: 1.2857142857142858, H: 2.3333333333333335},    // stack-2 horizontal
-				{X: 3, Y: 1.6666666666666667, W: 1.2, H: 1.6666666666666667},                  // stack-3 horizontal
-				{X: 4.8, Y: 1.6666666666666667, W: 1.2, H: 1.6666666666666667},                // stack-3 horizontal
-				{X: 5.3999999999999995, Y: 1.6666666666666667, W: 0.6, H: 1.6666666666666667}, // stack-3 horizontal
+				{X: 3, Y: 2.3333333333333335, W: 1.2, H: 1.6666666666666665},                  // stack-3 horizontal
+				{X: 4.2, Y: 2.3333333333333335, W: 1.2, H: 1.6666666666666665},                // stack-3 horizontal
+				{X: 5.4, Y: 2.3333333333333335, W: 0.5999999999999998, H: 1.6666666666666672}, // stack-3 horizontal
 			},
 		},
 		{
@@ -243,20 +241,33 @@ func TestSquarify(t *testing.T) {
 				{X: 3, Y: 0, W: 3, H: 4},
 			},
 		},
+		{
+			name:  "when three boxes same area and wide bounding, then split equally along long dimension",
+			box:   Box{W: 12, H: 3},
+			areas: []float64{12, 12, 12},
+			expBoxes: []Box{
+				{X: 0, Y: 0, W: 4, H: 3},
+				{X: 4, Y: 0, W: 4, H: 3},
+				{X: 8, Y: 0, W: 4, H: 3},
+			},
+		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
 			boxes := Squarify(tc.box, tc.areas)
 
 			if len(tc.expBoxes) != len(boxes) {
-				t.Errorf("exp(%#v) != got(%#v)", tc.expBoxes, boxes)
+				t.Errorf("wrong len: exp(%#v) != got(%#v)", tc.expBoxes, boxes)
 			}
 			for i, b := range tc.expBoxes {
-				if tc.expBoxes[i] != boxes[i] {
-					t.Errorf("exp(%#v) != got(%#v)", tc.expBoxes, boxes)
-				}
 				if (b.H * b.W) < 0.1 {
 					t.Errorf("got wrong size for box(%d: %#v)", i, b)
+				}
+				if b.X < 0 || b.Y < 0 || ((b.X + b.W) > (tc.box.X + tc.box.W)) || ((b.Y + b.H) > (tc.box.Y + tc.box.H)) {
+					t.Errorf("box(%d: %#v) overflows", i, b)
+				}
+				if tc.expBoxes[i] != boxes[i] {
+					t.Errorf("wrong boxes: exp(%#v) != got(%#v)", tc.expBoxes, boxes)
 				}
 			}
 		})
