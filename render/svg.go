@@ -71,6 +71,15 @@ func TextSVG(t *UIText) string {
 		return ""
 	}
 
+	r, g, b, a := color.Black.RGBA()
+	if t.Color != color.Opaque {
+		r, g, b, a = t.Color.RGBA()
+	}
+
+	r = r >> 8
+	g = g >> 8
+	b = b >> 8
+
 	s := fmt.Sprintf(`
 		<text 
 			data-notex="1" 
@@ -82,7 +91,7 @@ func TextSVG(t *UIText) string {
 		t.X,
 		t.Y+t.H,
 		t.Scale,
-		fmt.Sprintf("font-family: Open Sans, sans-serif !important; font-size: %dpx; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;", fontSize),
+		fmt.Sprintf("font-family: Open Sans, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d, %d); fill-opacity: 1; white-space: pre;", fontSize, r, g, b, a),
 		t.Text,
 	)
 	return s

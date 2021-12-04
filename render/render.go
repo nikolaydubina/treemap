@@ -23,6 +23,7 @@ type UIText struct {
 	H     float64
 	W     float64
 	Scale float64
+	Color color.Color
 }
 
 // UIBox is spec on how to render a box. Could be Root.
@@ -43,7 +44,8 @@ func (f UIBox) IsEmpty() bool {
 }
 
 type Colorer interface {
-	Color(tree treemap.Tree, node string) color.Color
+	ColorBox(tree treemap.Tree, node string) color.Color
+	ColorText(tree treemap.Tree, node string) color.Color
 }
 
 type UITreeMapBuilder struct {
@@ -78,7 +80,7 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 		Y:     y + margin,
 		W:     w - (2 * margin),
 		H:     h - (2 * margin),
-		Color: s.Colorer.Color(tree, node),
+		Color: s.Colorer.ColorBox(tree, node),
 	}
 
 	var textHeight float64
@@ -96,6 +98,7 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 				W:     w,
 				H:     textHeight,
 				Scale: scale,
+				Color: s.Colorer.ColorText(tree, node),
 			}
 		}
 	}
