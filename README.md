@@ -38,7 +38,7 @@ $ ... | treemap -color none > out.svg
 ```
 ![example-no-color](./docs/gapminder-2007-population-life-nocolor.svg)
 
-Large dimensions and large tree
+Large dimensions and deep and wide tree (github.com/golang/go)
 ```bash
 $ ... | treemap -color none > out.svg
 ```
