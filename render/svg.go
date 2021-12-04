@@ -13,12 +13,12 @@ func (r SVGRenderer) Render(root UIBox, w, h float64) []byte {
 	}
 
 	s := fmt.Sprintf(`
-		<svg 
-			xmlns="http://www.w3.org/2000/svg" 
-			xmlns:xlink="http://www.w3.org/1999/xlink" 
-			viewBox="0 0 %f %f" 
-			style="%s"
-		>`,
+<svg 
+	xmlns="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	viewBox="0 0 %f %f" 
+	style="%s"
+>`,
 		w,
 		h,
 		"background: white none repeat scroll 0% 0%;",
@@ -50,13 +50,12 @@ func BoxSVG(q UIBox) string {
 	g = g >> 8
 	b = b >> 8
 
-	return fmt.Sprintf(
-		`
-			<g>
-				<rect x="%f" y="%f" width="%f" height="%f" style="%s" />
-				%s
-			</g>
-			`,
+	return fmt.Sprintf(`
+<g>
+	<rect x="%f" y="%f" width="%f" height="%f" style="%s" />
+	%s
+</g>
+`,
 		q.X,
 		q.Y,
 		q.W,
@@ -81,12 +80,12 @@ func TextSVG(t *UIText) string {
 	b = b >> 8
 
 	s := fmt.Sprintf(`
-		<text 
-			data-notex="1" 
-			text-anchor="start"
-			transform="translate(%f,%f) scale(%f)"
-			style="%s" 
-			data-math="N">%s</text>
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(%f,%f) scale(%f)"
+	style="%s" 
+	data-math="N">%s</text>
 		`,
 		t.X,
 		t.Y+t.H,
