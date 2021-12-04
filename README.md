@@ -1,8 +1,32 @@
 Pretty Treemaps
 
+```
+$ go install github.com/nikolaydubina/treemap/cmd/treemap@latest 
+$ echo '
+Africa/Algeria,33333216,72
+Africa/Angola,12420476,42
+Africa/Benin,8078314,56
+' | treemap > out.svg
+```
+
+World population and life expectancy
+![example-1](./docs/gapminder-2007-population-life.svg)
+
+## Format
+
+Size is required. Heat is optional. For more customizations  
+
+```
+</ delimitered path>,<size>,<heat>
+```
+
 ## Algorithms
 
 * `Squarified` algorithm for treemap layout problem. This is very common algorithm used in Plotly and most of visualization packages. _"Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk, 2000_
+
+## Contributions
+
+Welcomed!
 
 ## References
 

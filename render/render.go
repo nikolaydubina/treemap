@@ -1,4 +1,9 @@
-package treemap
+package render
+
+import (
+	"github.com/nikolaydubina/treemap"
+	"github.com/nikolaydubina/treemap/layout"
+)
 
 const (
 	fontSize             int     = 12
@@ -32,7 +37,7 @@ func (f UIBox) IsEmpty() bool {
 	return f.W == 0 || f.H == 0
 }
 
-func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float64) UIBox {
+func NewUIBox(node string, tree treemap.Tree, x, y, w, h, margin float64, padding float64) UIBox {
 	if (w <= (2 * padding)) || (h <= (2 * padding)) || w < tooSmallBoxWidth || h < tooSmallBoxHeight {
 		// too small, do not render
 		return UIBox{}
@@ -73,16 +78,16 @@ func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float6
 		areas = append(areas, nodeSize(tree, toPath))
 	}
 
-	childrenContainer := Box{
+	childrenContainer := layout.Box{
 		X: t.X + padding,
 		Y: t.Y + padding + textHeight,
 		W: t.W - (2 * padding),
 		H: t.H - (2 * padding) - textHeight,
 	}
-	boxes := Squarify(childrenContainer, areas)
+	boxes := layout.Squarify(childrenContainer, areas)
 
 	for i, toPath := range tree.To[node] {
-		if boxes[i] == NilBox {
+		if boxes[i] == layout.NilBox {
 			continue
 		}
 		box := NewUIBox(
@@ -104,7 +109,7 @@ func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float6
 	return t
 }
 
-func nodeSize(tree Tree, node string) float64 {
+func nodeSize(tree treemap.Tree, node string) float64 {
 	if n, ok := tree.Nodes[node]; ok {
 		return n.Size
 	}

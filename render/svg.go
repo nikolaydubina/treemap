@@ -1,4 +1,4 @@
-package treemap
+package render
 
 import (
 	"fmt"

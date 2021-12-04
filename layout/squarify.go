@@ -1,4 +1,4 @@
-package treemap
+package layout
 
 import (
 	"math"
@@ -20,9 +20,10 @@ type wrappedArea struct {
 }
 
 // Squarify partitions box into parts by using Squarify algorithm.
+// As described in "Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000
+// This function does sanity checks and hardening so that algorithm can work in the wild.
 // Returns boxes in same order as areas.
 // Zero areas will have zero-value box.
-// As described in "Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000
 func Squarify(box Box, areas []float64) []Box {
 	// normalize and sort from highest to lowest
 	sortedAreas := make([]wrappedArea, len(areas))

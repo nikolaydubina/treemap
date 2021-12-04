@@ -1,4 +1,4 @@
-package treemap
+package parser
 
 import (
 	"encoding/csv"
@@ -7,31 +7,13 @@ import (
 	"io"
 	"strconv"
 	"strings"
+
+	"github.com/nikolaydubina/treemap"
 )
-
-type Node struct {
-	Path string
-	Size float64
-	Heat float64
-}
-
-func (n Node) Name() string {
-	parts := strings.Split(n.Path, "/")
-	if len(parts) == 0 {
-		return ""
-	}
-	return parts[len(parts)-1]
-}
-
-type Tree struct {
-	Nodes map[string]Node
-	To    map[string][]string
-	Root  string
-}
 
 type CSVTreeParser struct{}
 
-func (s CSVTreeParser) ParseString(in string) (*Tree, error) {
+func (s CSVTreeParser) ParseString(in string) (*treemap.Tree, error) {
 	nodes, err := parseNodes(in)
 	if err != nil {
 		return nil, fmt.Errorf("can not parse nodes: %w", err)
@@ -45,8 +27,8 @@ func (s CSVTreeParser) ParseString(in string) (*Tree, error) {
 	return tree, nil
 }
 
-func parseNodes(in string) ([]Node, error) {
-	var nodes []Node
+func parseNodes(in string) ([]treemap.Node, error) {
+	var nodes []treemap.Node
 	r := csv.NewReader(strings.NewReader(in))
 	for {
 		record, err := r.Read()
@@ -61,7 +43,7 @@ func parseNodes(in string) ([]Node, error) {
 			return nil, errors.New("no values in row")
 		}
 
-		node := Node{Path: record[0]}
+		node := treemap.Node{Path: record[0]}
 
 		if len(record) >= 2 {
 			v, err := strconv.ParseFloat(record[1], 64)
@@ -86,9 +68,9 @@ func parseNodes(in string) ([]Node, error) {
 
 // If node is in path, but not present, then it will be in To but not will have entry in Nodes.
 // This is not terribly efficient, but should do its job for small graphs.
-func makeTree(nodes []Node) (*Tree, error) {
-	tree := Tree{
-		Nodes: map[string]Node{},
+func makeTree(nodes []treemap.Node) (*treemap.Tree, error) {
+	tree := treemap.Tree{
+		Nodes: map[string]treemap.Node{},
 		To:    map[string][]string{},
 	}
 

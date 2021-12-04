@@ -1,4 +1,4 @@
-package treemap
+package layout
 
 import (
 	"fmt"

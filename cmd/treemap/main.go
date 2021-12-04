@@ -7,13 +7,24 @@ import (
 	"log"
 	"os"
 
-	"github.com/nikolaydubina/treemap"
+	"github.com/nikolaydubina/treemap/parser"
+	"github.com/nikolaydubina/treemap/render"
 )
 
 const doc string = `
-TODO
+Generate treemaps from STDIN in header-less CSV as follows:
 
-TODO 1
+</ delimitered path>,<size>,<heat>
+
+Example:
+
+'''csv
+Africa/Algeria,33333216.0,72.301
+Africa/Angola,12420476.0,42.731
+Africa/Benin,8078314.0,56.728
+'''
+
+$ cat file.csv | treemap > out.svg
 `
 
 func main() {
@@ -25,7 +36,7 @@ func main() {
 	)
 
 	flag.Usage = func() {
-		fmt.Fprintf(flag.CommandLine.Output(), doc, os.Args[0])
+		fmt.Fprint(flag.CommandLine.Output(), doc)
 		flag.PrintDefaults()
 	}
 	flag.Float64Var(&w, "w", 1028, "width of output")
@@ -39,14 +50,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	parser := treemap.CSVTreeParser{}
+	parser := parser.CSVTreeParser{}
 	tree, err := parser.ParseString(string(in))
 	if err != nil || tree == nil {
 		log.Fatal(err)
 	}
 
-	spec := treemap.NewUIBox(tree.Root, *tree, 0, 0, w, h, margin, padding)
-	renderer := treemap.SVGRenderer{}
+	spec := render.NewUIBox(tree.Root, *tree, 0, 0, w, h, margin, padding)
+	renderer := render.SVGRenderer{}
 
 	os.Stdout.Write(renderer.Render(spec))
 }
