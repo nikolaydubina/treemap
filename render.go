@@ -2,8 +2,10 @@ package treemap
 
 const (
 	fontSize             int     = 12
-	textHeightMultiplier float64 = 1
+	textHeightMultiplier float64 = 0.8
 	textWidthMultiplier  float64 = 0.8
+	tooSmallBoxHeight    float64 = 5
+	tooSmallBoxWidth     float64 = 5
 )
 
 // UIText is spec on how to render text.
@@ -26,7 +28,16 @@ type UIBox struct {
 	Children []UIBox
 }
 
+func (f UIBox) IsEmpty() bool {
+	return f.W == 0 || f.H == 0
+}
+
 func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float64) UIBox {
+	if (w <= (2 * padding)) || (h <= (2 * padding)) || w < tooSmallBoxWidth || h < tooSmallBoxHeight {
+		// too small, do not render
+		return UIBox{}
+	}
+
 	t := UIBox{
 		X: x + margin,
 		Y: y + margin,
@@ -38,16 +49,18 @@ func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float6
 	if title := tree.Nodes[node].Name(); title != "" {
 		// fit text
 		w := t.W - (2 * padding)
-		var scale float64
-		scale, textHeight = fitText(title, fontSize, w)
-
-		t.Title = &UIText{
-			Text:  title,
-			X:     t.X + padding,
-			Y:     t.Y + padding,
-			W:     w,
-			H:     textHeight,
-			Scale: scale,
+		h := t.H - (2 * padding)
+		if scale, th := fitText(title, fontSize, w); scale > 0 && th > 0 && th < h {
+			textHeight = th
+			// if enough space for text, then add
+			t.Title = &UIText{
+				Text:  title,
+				X:     t.X + padding,
+				Y:     t.Y + padding,
+				W:     w,
+				H:     textHeight,
+				Scale: scale,
+			}
 		}
 	}
 
@@ -82,6 +95,9 @@ func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float6
 			margin,
 			padding,
 		)
+		if box.IsEmpty() {
+			continue
+		}
 		t.Children = append(t.Children, box)
 	}
 
