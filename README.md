@@ -1,4 +1,4 @@
-Pretty Treemaps
+🍬 Pretty Treemaps
 
 ```
 $ go install github.com/nikolaydubina/treemap/cmd/treemap@latest 
@@ -13,19 +13,24 @@ Default options
 ```
 $ ... | treemap > out.svg
 ```
-![example-1](./docs/gapminder-2007-population-life.svg)
+![example](./docs/gapminder-2007-population-life.svg)
+
+Adjusting size
+```
+$ ... | treemap -w 1080 -h 360 > out.svg
+```
+![example-narrow](./docs/gapminder-2007-population-life-1080x360.svg)
+
+```
+$ ... | treemap -w 1080 -h 1080 > out.svg
+```
+![example-square](./docs/gapminder-2007-population-life-1080x1080.svg)
 
 Without color
 ```
 $ ... | treemap -color none > out.svg
 ```
-![example-2](./docs/gapminder-2007-population-life-nocolor.svg)
-
-Adjusting size
-```
-$ ... | treemap -w 1080 -h 1080 > out.svg
-```
-![example-2](./docs/gapminder-2007-population-life-1080x1080.svg)
+![example-no-color](./docs/gapminder-2007-population-life-nocolor.svg)
 
 ## Format
 
