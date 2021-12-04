@@ -38,7 +38,10 @@ func Squarify(box Box, areas []float64) []Box {
 
 	layout.squarify(sortedAreas, nil, math.Min(layout.freeSpace.W, layout.freeSpace.H))
 
-	return layout.boxes
+	boxes := layout.boxes
+	cutoffOverflows(box, layout.boxes)
+
+	return boxes
 }
 
 // squarifyBoxLayout defines how to partition BoundingBox into boxes
@@ -48,34 +51,34 @@ type squarifyBoxLayout struct {
 }
 
 // squarify expects normalized areas that add up to free space
-func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, rowAreas []float64, w float64) {
+func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, stackAreas []float64, w float64) {
 	if len(unassignedAreas) == 0 {
-		l.stackBoxes(rowAreas)
+		l.stackBoxes(stackAreas)
 		return
 	}
 
-	if len(rowAreas) == 0 {
+	if len(stackAreas) == 0 {
 		l.squarify(unassignedAreas[1:], []float64{unassignedAreas[0]}, w)
 		return
 	}
 
 	c := unassignedAreas[0]
-	if rowc := append(rowAreas, c); highestAspectRatio(rowAreas, w) > highestAspectRatio(rowc, w) {
-		// aspect ratio improves, add it to current row
-		l.squarify(unassignedAreas[1:], rowc, w)
+	if stackc := append(stackAreas, c); highestAspectRatio(stackAreas, w) > highestAspectRatio(stackc, w) {
+		// aspect ratio improves, add it to current stack
+		l.squarify(unassignedAreas[1:], stackc, w)
 	} else {
 		// aspect ratio does not improve
-		l.stackBoxes(rowAreas)
+		l.stackBoxes(stackAreas)
 		l.squarify(unassignedAreas, nil, math.Min(l.freeSpace.W, l.freeSpace.H))
 	}
 }
 
 // stackBoxes makes new boxes accordingly to areas and fix them into freeSpacelayout within bounding box
-func (l *squarifyBoxLayout) stackBoxes(rowAreas []float64) {
+func (l *squarifyBoxLayout) stackBoxes(stackAreas []float64) {
 	if l.freeSpace.W < l.freeSpace.H {
-		l.stackBoxesHorizontal(rowAreas)
+		l.stackBoxesHorizontal(stackAreas)
 	} else {
-		l.stackBoxesVertical(rowAreas)
+		l.stackBoxesVertical(stackAreas)
 	}
 }
 
@@ -180,4 +183,20 @@ func highestAspectRatio(areas []float64, w float64) float64 {
 	v2 := totalArea * totalArea / (w * w * minArea)
 
 	return math.Max(v1, v2)
+}
+
+// cutoffOverflows will set boxes that overflow to fit into bounding box.
+// This is useful for numerical stability on the borders.
+func cutoffOverflows(boundingBox Box, boxes []Box) {
+	maxX := boundingBox.X + boundingBox.W
+	maxY := boundingBox.Y + boundingBox.H
+
+	for i, b := range boxes {
+		if delta := (b.X + b.W) - maxX; delta > 0 {
+			boxes[i].W -= delta
+		}
+		if delta := (b.Y + b.H) - maxY; delta > 0 {
+			boxes[i].H -= delta
+		}
+	}
 }
