@@ -40,7 +40,7 @@ $ ... | treemap -color none > out.svg
 
 Large dimensions and large tree (e.g. `github.com/golang/go`)
 ```bash
-$ ... | treemap -color none > out.svg
+$ ... | treemap -w 4096 -h 4096 > out.svg
 ```
 ![example-large](./docs/find-src-go-dir.svg)
 
