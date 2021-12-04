@@ -8,7 +8,7 @@ Pretty Treemaps
 
 * Plotly treemaps: https://plotly.com/python/treemaps/
 * go-colorful: https://github.com/lucasb-eyer/go-colorful
-* D3 has treemap has Squarifiy as default algorithm: https://github.com/d3/d3-hierarchy
+* D3 treemap is using Squerified: https://github.com/d3/d3-hierarchy
 * Interactive treemap: https://github.com/vasturiano/treemap-chart
 * Squerified in Rust: https://github.com/bacongobbler/treemap-rs
 * Squerified in JavaScript: https://github.com/clementbat/treemap
