@@ -1,7 +1,5 @@
 package treemap
 
-import "log"
-
 type UIBox struct {
 	Title      string
 	X          float64
@@ -28,17 +26,16 @@ func NewUIBox(node string, tree Tree, x, y, w, h, textHeight, padding float64) U
 		return t
 	}
 
-	areas := make([]float64, len(tree.To[node]))
+	areas := make([]float64, 0, len(tree.To[node]))
 	for _, toPath := range tree.To[node] {
-		areas = append(areas, getNodeArea(tree, toPath))
+		areas = append(areas, nodeSize(tree, toPath))
 	}
-	log.Printf("%#v\n", areas)
 
 	childrenContainer := Box{
 		X: x + (w * padding),
-		Y: y + (h * padding) + textHeight,
+		Y: y + (h * padding) + (h * textHeight),
 		W: w * (1 - (2 * padding)),
-		H: h * (1 - (2 * padding)),
+		H: h * (1 - (2 * padding) - textHeight),
 	}
 	boxes := Squarify(childrenContainer, areas)
 
@@ -54,22 +51,19 @@ func NewUIBox(node string, tree Tree, x, y, w, h, textHeight, padding float64) U
 			padding,
 		)
 		t.Children = append(t.Children, box)
-
 	}
 
 	return t
 }
 
-// getNodeArea recursively computes node area
-func getNodeArea(tree Tree, node string) float64 {
+func nodeSize(tree Tree, node string) float64 {
 	if n, ok := tree.Nodes[node]; ok {
 		return n.Size
 	}
 
 	var s float64
 	for _, child := range tree.To[node] {
-		s += getNodeArea(tree, child)
+		s += nodeSize(tree, child)
 	}
-
 	return s
 }

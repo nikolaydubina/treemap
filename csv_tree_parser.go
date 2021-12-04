@@ -139,8 +139,8 @@ func makeTree(nodes []Node) (*Tree, error) {
 }
 
 func unique(a []string) []string {
-	u := make(map[string]bool)
-	b := []string{}
+	u := map[string]bool{}
+	var b []string
 	for _, q := range a {
 		if _, ok := u[q]; !ok {
 			u[q] = true

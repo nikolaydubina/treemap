@@ -288,8 +288,18 @@ func TestSquarify(t *testing.T) {
 			box:   Box{W: 12, H: 3},
 			areas: []float64{1, 3},
 			expBoxes: []Box{
-				{X: 0, Y: 0, W: 9, H: 3},
 				{X: 9, Y: 0, W: 3, H: 3},
+				{X: 0, Y: 0, W: 9, H: 3},
+			},
+		},
+		{
+			name:  "when has zero, then zero value box is returned",
+			box:   Box{W: 12, H: 3},
+			areas: []float64{1, 0, 3},
+			expBoxes: []Box{
+				{X: 9, Y: 0, W: 3, H: 3},
+				{},
+				{X: 0, Y: 0, W: 9, H: 3},
 			},
 		},
 	}
@@ -301,6 +311,9 @@ func TestSquarify(t *testing.T) {
 				t.Errorf("wrong boxes: exp(%#v) != got(%#v)", tc.expBoxes, boxes)
 			}
 			for i, b := range boxes {
+				if (b == Box{}) {
+					continue
+				}
 				if (b.H * b.W) < 0.1 {
 					t.Errorf("got wrong size for box(%d: %#v)", i, b)
 				}

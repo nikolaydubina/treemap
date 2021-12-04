@@ -1,6 +1,7 @@
 package treemap
 
 import (
+	"sort"
 	"strings"
 	"testing"
 )
@@ -182,6 +183,9 @@ func eqTree(a, b Tree) bool {
 		if len(ato) != len(bto) {
 			return false
 		}
+		sort.Slice(ato, func(i, j int) bool { return ato[i] < bto[j] })
+		sort.Slice(bto, func(i, j int) bool { return bto[i] < bto[j] })
+
 		for i := range ato {
 			if ato[i] != bto[i] {
 				return false

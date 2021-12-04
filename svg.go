@@ -43,7 +43,7 @@ func (r SVGRenderer) Render(box UIBox) []byte {
 			q.Y,
 			q.W,
 			q.H,
-			"fill:blue;opacity:0.5;stroke:grey;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9",
+			"fill:blue;opacity:0.5;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;",
 			q.X,
 			q.Y,
 			"font-size: 12px; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;",

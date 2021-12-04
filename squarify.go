@@ -12,37 +12,70 @@ type Box struct {
 	H float64
 }
 
+type wrappedArea struct {
+	i    int
+	area float64
+}
+
 // Squarify partitions box into parts by using Squarify algorithm.
 // Returns boxes in same order as areas.
+// Zero areas will have zero-value box.
 // As described in "Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000
 func Squarify(box Box, areas []float64) []Box {
-	// sort
-	sortedAreas := make([]float64, len(areas))
-	copy(sortedAreas, areas)
-	sort.Slice(sortedAreas, func(i, j int) bool { return sortedAreas[i] > sortedAreas[j] })
-
-	// normalize
-	var totalArea float64
-	for _, s := range sortedAreas {
-		totalArea += s
+	// normalize and sort from highest to lowest
+	sortedAreas := make([]wrappedArea, len(areas))
+	for i, s := range normalizeAreas(areas, (box.W * box.H)) {
+		sortedAreas[i] = wrappedArea{i: i, area: s}
 	}
-	if boxArea := box.W * box.H; totalArea != boxArea {
-		for i, s := range sortedAreas {
-			sortedAreas[i] = boxArea * s / totalArea
+	sort.Slice(sortedAreas, func(i, j int) bool { return sortedAreas[i].area > sortedAreas[j].area })
+
+	// take non zero areas only, zero areas are to the right
+	cleanAreas := make([]float64, 0, len(areas))
+	for _, v := range sortedAreas {
+		if v.area > 0 {
+			cleanAreas = append(cleanAreas, v.area)
 		}
 	}
 
+	// squarify
 	layout := squarifyBoxLayout{
 		boxes:     nil,
 		freeSpace: box,
 	}
-
-	layout.squarify(sortedAreas, nil, math.Min(layout.freeSpace.W, layout.freeSpace.H))
+	layout.squarify(cleanAreas, nil, math.Min(layout.freeSpace.W, layout.freeSpace.H))
 
 	boxes := layout.boxes
 	cutoffOverflows(box, layout.boxes)
 
-	return boxes
+	// restore ordering
+	res := make([]Box, len(areas))
+	for i, wr := range sortedAreas {
+		if i < len(cleanAreas) && i < len(boxes) {
+			// this area has some value
+			res[wr.i] = boxes[i]
+		} else {
+			// zero value, this area was zero
+			res[wr.i] = Box{}
+		}
+	}
+
+	return res
+}
+
+func normalizeAreas(areas []float64, target float64) []float64 {
+	var total float64
+	for _, s := range areas {
+		total += s
+	}
+	if total == target {
+		return areas
+	}
+	n := make([]float64, len(areas))
+	copy(n, areas)
+	for i, s := range n {
+		n[i] = target * s / total
+	}
+	return n
 }
 
 // squarifyBoxLayout defines how to partition BoundingBox into boxes
@@ -51,7 +84,8 @@ type squarifyBoxLayout struct {
 	freeSpace Box   // free space that is left. will be used to fill out with new boxes
 }
 
-// squarify expects normalized areas that add up to free space
+// squarify expects normalized areas that add up to free space.
+// areas should not be zero.
 func (l *squarifyBoxLayout) squarify(unassignedAreas []float64, stackAreas []float64, w float64) {
 	if len(unassignedAreas) == 0 {
 		l.stackBoxes(stackAreas)
