@@ -3,6 +3,7 @@ package render
 import (
 	_ "embed"
 	"image/color"
+	"log"
 	"strconv"
 	"strings"
 
@@ -48,8 +49,15 @@ func makePaletteFromCSV(csv string) ColorfulPalette {
 			continue
 		}
 
-		c, _ := colorful.Hex(parts[0])
-		v, _ := strconv.ParseFloat(parts[1], 64)
+		c, err := colorful.Hex(parts[0])
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		v, err := strconv.ParseFloat(parts[1], 64)
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		palette[i].Col = c
 		palette[i].Pos = v
