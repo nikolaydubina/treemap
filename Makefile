@@ -19,5 +19,6 @@ docs:
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color none > docs/gapminder-2007-population-life-nocolor.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color RedBlu > docs/gapminder-2007-population-life-RedBlu.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color balanced > docs/gapminder-2007-population-life-balanced.svg
+	cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
 
 .PHONY: all clean build cover docs

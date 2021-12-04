@@ -24,7 +24,28 @@ func (s CSVTreeParser) ParseString(in string) (*treemap.Tree, error) {
 		return nil, fmt.Errorf("can not make tree: %w", err)
 	}
 
+	fillSizeIfAllEmpty(*tree)
+
 	return tree, nil
+}
+
+func fillSizeIfAllEmpty(tree treemap.Tree) {
+	allZeroSize := true
+	for _, node := range tree.Nodes {
+		if node.Size > 0 {
+			allZeroSize = false
+			break
+		}
+	}
+	if allZeroSize {
+		for i, node := range tree.Nodes {
+			tree.Nodes[i] = treemap.Node{
+				Path: node.Path,
+				Size: 1,
+				Heat: node.Heat,
+			}
+		}
+	}
 }
 
 func parseNodes(in string) ([]treemap.Node, error) {

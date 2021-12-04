@@ -42,9 +42,15 @@ $ ... | treemap -color none > out.svg
 ```
 ![example-no-color](./docs/gapminder-2007-population-life-nocolor.svg)
 
+Large dimensions and large tree
+```bash
+$ ... | treemap -color none > out.svg
+```
+![example-large](./docs/find-src-go-dir.svg)
+
 ## Format
 
-Size is required. Heat is optional. For more customizations invoke Go packages in your code. 
+Size and heat is optional.
 
 ```
 </ delimitered path>,<size>,<heat>
