@@ -1,6 +1,6 @@
-🍬 Pretty Treemaps
+# 🍬 Pretty Treemaps
 
-```
+```bash
 $ go install github.com/nikolaydubina/treemap/cmd/treemap@latest 
 $ echo '
 Africa/Algeria,33333216,72
@@ -10,24 +10,24 @@ Africa/Benin,8078314,56
 ```
 
 Default options
-```
+```bash
 $ ... | treemap > out.svg
 ```
 ![example](./docs/gapminder-2007-population-life.svg)
 
 Adjusting size
-```
+```bash
 $ ... | treemap -w 1080 -h 360 > out.svg
 ```
 ![example-narrow](./docs/gapminder-2007-population-life-1080x360.svg)
 
-```
+```bash
 $ ... | treemap -w 1080 -h 1080 > out.svg
 ```
 ![example-square](./docs/gapminder-2007-population-life-1080x1080.svg)
 
 Without color
-```
+```bash
 $ ... | treemap -color none > out.svg
 ```
 ![example-no-color](./docs/gapminder-2007-population-life-nocolor.svg)
