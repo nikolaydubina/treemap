@@ -13,12 +13,6 @@
 			
 
 			<g>
-				<rect x="842.365135" y="590.066388" width="141.634865" height="5.933612" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;" />
-				
-			</g>
-			
-
-			<g>
 				<rect x="622.103441" y="257.419254" width="212.261694" height="338.580746" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;" />
 				
 			</g>
@@ -32,6 +26,12 @@
 
 			<g>
 				<rect x="842.365135" y="257.419254" width="141.634865" height="324.647134" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;" />
+				
+			</g>
+			
+
+			<g>
+				<rect x="842.365135" y="590.066388" width="141.634865" height="5.933612" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;" />
 				
 			</g>
 			

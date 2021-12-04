@@ -29,11 +29,12 @@ Command options:
 
 func main() {
 	var (
-		w          float64
-		h          float64
-		marginBox  float64
-		paddingBox float64
-		padding    float64
+		w           float64
+		h           float64
+		marginBox   float64
+		paddingBox  float64
+		padding     float64
+		colorScheme string
 	)
 
 	flag.Usage = func() {
@@ -41,10 +42,11 @@ func main() {
 		flag.PrintDefaults()
 	}
 	flag.Float64Var(&w, "w", 1028, "width of output")
-	flag.Float64Var(&h, "h", 1028, "height of output")
+	flag.Float64Var(&h, "h", 640, "height of output")
 	flag.Float64Var(&marginBox, "margin-box", 4, "margin between boxes")
 	flag.Float64Var(&paddingBox, "padding-box", 4, "padding between box border and content")
 	flag.Float64Var(&padding, "padding", 32, "padding around root content")
+	flag.StringVar(&colorScheme, "color", "balance", "color scheme (RdBu, balance, none)")
 	flag.Parse()
 
 	in, err := io.ReadAll(os.Stdin)
@@ -58,7 +60,26 @@ func main() {
 		log.Fatal(err)
 	}
 
-	spec := render.NewUITreeMap(*tree, w, h, marginBox, paddingBox, padding)
+	tree.NormalizeHeat()
+
+	var colorer render.Colorer
+	palette, hasPalette := render.GetPalette(colorScheme)
+	switch {
+	case colorScheme == "none":
+		colorer = render.NoneColorer{}
+	case hasPalette && tree.HasHeat():
+		colorer = render.HeatColorer{Palette: palette}
+	case tree.HasHeat():
+		palette, _ := render.GetPalette("RdBu")
+		colorer = render.HeatColorer{Palette: palette}
+	default:
+		colorer = render.TreeHueColorer{}
+	}
+
+	uiBuilder := render.UITreeMapBuilder{
+		Colorer: colorer,
+	}
+	spec := uiBuilder.NewUITreeMap(*tree, w, h, marginBox, paddingBox, padding)
 	renderer := render.SVGRenderer{}
 
 	os.Stdout.Write(renderer.Render(spec, w, h))

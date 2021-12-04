@@ -17,9 +17,9 @@ $ ... | treemap > out.svg
 
 Adjusting size
 ```
-$ ... | treemap -w 1080 -h 640 > out.svg
+$ ... | treemap -w 1080 -h 1080 > out.svg
 ```
-![example-2](./docs/gapminder-2007-population-life-1080x640.svg)
+![example-2](./docs/gapminder-2007-population-life-1080x1080.svg)
 
 ## Format
 

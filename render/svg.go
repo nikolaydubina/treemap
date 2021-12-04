@@ -2,6 +2,7 @@ package render
 
 import (
 	"fmt"
+	"image/color"
 )
 
 type SVGRenderer struct{}
@@ -40,6 +41,14 @@ func BoxSVG(q UIBox) string {
 	if q.IsInvisible {
 		return ""
 	}
+	r, g, b, a := color.White.RGBA()
+	if q.Color != color.Opaque {
+		r, g, b, a = q.Color.RGBA()
+	}
+
+	r = r >> 8
+	g = g >> 8
+	b = b >> 8
 
 	return fmt.Sprintf(
 		`
@@ -52,7 +61,7 @@ func BoxSVG(q UIBox) string {
 		q.Y,
 		q.W,
 		q.H,
-		"fill: rgb(255, 255, 255);opacity:0.5;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;",
+		fmt.Sprintf("fill: rgba(%d, %d, %d, %d);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;", r, g, b, a),
 		TextSVG(q.Title),
 	)
 }

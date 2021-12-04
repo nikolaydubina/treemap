@@ -1,6 +1,8 @@
 package render
 
 import (
+	"image/color"
+
 	"github.com/nikolaydubina/treemap"
 	"github.com/nikolaydubina/treemap/layout"
 )
@@ -33,13 +35,22 @@ type UIBox struct {
 	Children    []UIBox
 	IsInvisible bool
 	IsRoot      bool
+	Color       color.Color
 }
 
 func (f UIBox) IsEmpty() bool {
 	return f.W == 0 || f.H == 0
 }
 
-func NewUITreeMap(tree treemap.Tree, w, h, margin, padding, paddingRoot float64) UIBox {
+type Colorer interface {
+	Color(tree treemap.Tree, node string) color.Color
+}
+
+type UITreeMapBuilder struct {
+	Colorer Colorer
+}
+
+func (s UITreeMapBuilder) NewUITreeMap(tree treemap.Tree, w, h, margin, padding, paddingRoot float64) UIBox {
 	t := UIBox{
 		X:           0 + paddingRoot,
 		Y:           0 + paddingRoot,
@@ -50,23 +61,24 @@ func NewUITreeMap(tree treemap.Tree, w, h, margin, padding, paddingRoot float64)
 	}
 
 	t.Children = []UIBox{
-		NewUIBox(tree.Root, tree, t.X, t.Y, t.W, t.H, margin, padding),
+		s.NewUIBox(tree.Root, tree, t.X, t.Y, t.W, t.H, margin, padding),
 	}
 
 	return t
 }
 
-func NewUIBox(node string, tree treemap.Tree, x, y, w, h, margin float64, padding float64) UIBox {
+func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, margin float64, padding float64) UIBox {
 	if (w <= (2 * padding)) || (h <= (2 * padding)) || w < tooSmallBoxWidth || h < tooSmallBoxHeight {
 		// too small, do not render
 		return UIBox{}
 	}
 
 	t := UIBox{
-		X: x + margin,
-		Y: y + margin,
-		W: w - (2 * margin),
-		H: h - (2 * margin),
+		X:     x + margin,
+		Y:     y + margin,
+		W:     w - (2 * margin),
+		H:     h - (2 * margin),
+		Color: s.Colorer.Color(tree, node),
 	}
 
 	var textHeight float64
@@ -109,7 +121,7 @@ func NewUIBox(node string, tree treemap.Tree, x, y, w, h, margin float64, paddin
 		if boxes[i] == layout.NilBox {
 			continue
 		}
-		box := NewUIBox(
+		box := s.NewUIBox(
 			toPath,
 			tree,
 			boxes[i].X,
