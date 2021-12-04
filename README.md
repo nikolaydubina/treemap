@@ -38,12 +38,6 @@ $ ... | treemap -color none > out.svg
 ```
 ![example-no-color](./docs/gapminder-2007-population-life-nocolor.svg)
 
-Large dimensions and large tree (e.g. `github.com/golang/go`)
-```bash
-$ ... | treemap -w 4096 -h 4096 > out.svg
-```
-![example-large](./docs/find-src-go-dir.svg)
-
 ## Format
 
 Size and heat is optional.
@@ -74,3 +68,11 @@ Welcomed!
 * Plotly color scales: https://plotly.com/python/builtin-colorscales
 * Plotly color scales source: https://github.com/plotly/plotly.py/blob/master/packages/python/plotly/_plotly_utils/colors/colorbrewer.py
 * Colorbrewer project, that is used in Plotly: http://colorbrewer2.org
+
+## Appendix A: Less Illustrative Examples
+
+Large dimensions and large tree (e.g. `github.com/golang/go`)
+```bash
+$ ... | treemap -w 4096 -h 4096 > out.svg
+```
+![example-large](./docs/find-src-go-dir.svg)
