@@ -47,3 +47,6 @@ Welcomed!
 * Squerified in JavaScript: https://github.com/clementbat/treemap
 * Squerified in Python: https://github.com/laserson/squarify
 * Treemap Go tool: https://github.com/willpoint/treemap
+* Plotly color scales: https://plotly.com/python/builtin-colorscales
+* Plotly color scales source: https://github.com/plotly/plotly.py/blob/master/packages/python/plotly/_plotly_utils/colors/colorbrewer.py
+* Colorbrewer project, that is used in Plotly: http://colorbrewer2.org
