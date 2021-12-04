@@ -2,13 +2,6 @@ package treemap
 
 import (
 	"fmt"
-	"log"
-)
-
-const (
-	fontSize             int     = 12
-	textHeightMultiplier float64 = 2
-	textWidthMultiplier  float64 = 0.8
 )
 
 type SVGRenderer struct{}
@@ -54,24 +47,10 @@ func (r SVGRenderer) Render(box UIBox) []byte {
 	return []byte(s)
 }
 
-func textWidth(text string, fontSize float64) float64 {
-	return fontSize * float64(len(text)) * textWidthMultiplier
-}
-
-func textHeight(text string, fontSize float64) float64 {
-	return fontSize * textHeightMultiplier
-}
-
 func TextSVG(t *UIText) string {
 	if t == nil {
 		return ""
 	}
-
-	w := textWidth(t.Text, float64(fontSize))
-	h := textHeight(t.Text, float64(fontSize))
-	log.Printf("%#v %#v\n", w, h)
-
-	// compute bounding and scale
 
 	s := fmt.Sprintf(`
 		<text 
@@ -82,9 +61,9 @@ func TextSVG(t *UIText) string {
 			data-math="N">%s</text>
 		`,
 		t.X,
-		t.Y,
+		t.Y+t.H,
 		t.Scale,
-		fmt.Sprintf("font-size: %dpx; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;", fontSize),
+		fmt.Sprintf("font-family: Open Sans, sans-serif !important; font-size: %dpx; fill: rgb(68, 68, 68); fill-opacity: 1; white-space: pre;", fontSize),
 		t.Text,
 	)
 	return s

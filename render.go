@@ -1,5 +1,11 @@
 package treemap
 
+const (
+	fontSize             int     = 12
+	textHeightMultiplier float64 = 1
+	textWidthMultiplier  float64 = 0.8
+)
+
 // UIText is spec on how to render text.
 type UIText struct {
 	Text  string
@@ -30,15 +36,18 @@ func NewUIBox(node string, tree Tree, x, y, w, h, margin float64, padding float6
 
 	var textHeight float64
 	if title := tree.Nodes[node].Name(); title != "" {
-		// TODO: estimation of text length
-		textHeight = 20
+		// fit text
+		w := t.W - (2 * padding)
+		var scale float64
+		scale, textHeight = fitText(title, fontSize, w)
+
 		t.Title = &UIText{
 			Text:  title,
 			X:     t.X + padding,
-			Y:     t.Y + padding + textHeight,
-			W:     t.W - (2 * padding),
+			Y:     t.Y + padding,
+			W:     w,
 			H:     textHeight,
-			Scale: textHeight / 12,
+			Scale: scale,
 		}
 	}
 
@@ -88,4 +97,30 @@ func nodeSize(tree Tree, node string) float64 {
 		s += nodeSize(tree, child)
 	}
 	return s
+}
+
+// compute scale to fit worst dimension
+func fitText(text string, fontSize int, W float64) (scale float64, h float64) {
+	w := textWidth(text, float64(fontSize))
+	h = textHeight(text, float64(fontSize))
+
+	scale = 1.0
+	if wscale := W / w; wscale < scale {
+		scale = wscale
+	}
+
+	H := textHeight(text, float64(fontSize))
+	if hscale := H / h; hscale < scale {
+		scale = hscale
+	}
+
+	return scale, h
+}
+
+func textWidth(text string, fontSize float64) float64 {
+	return fontSize * float64(len(text)) * textWidthMultiplier
+}
+
+func textHeight(text string, fontSize float64) float64 {
+	return fontSize * textHeightMultiplier
 }
