@@ -22,19 +22,6 @@ func (s NoneColorer) ColorText(tree treemap.Tree, node string) color.Color {
 	return DarkTextColor
 }
 
-// TreeHueColorer this algorithm will split Hue in NCL ranges such that
-// deeper nodes have more specific hue.
-// The advantage of this coloring is that nodes in that belong topologically close will have similar hue.
-type TreeHueColorer struct{}
-
-func (s TreeHueColorer) ColorBox(tree treemap.Tree, node string) color.Color {
-	return color.Transparent
-}
-
-func (s TreeHueColorer) ColorText(tree treemap.Tree, node string) color.Color {
-	return DarkTextColor
-}
-
 // HeatColorer will use heat field of nodes.
 // If not present, then will pick midrange.
 // This is proxy for go-colorful palette.

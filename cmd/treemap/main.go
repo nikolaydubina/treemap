@@ -63,17 +63,30 @@ func main() {
 	tree.NormalizeHeat()
 
 	var colorer render.Colorer
+
 	palette, hasPalette := render.GetPalette(colorScheme)
+	treeHueColorer := render.TreeHueColorer{
+		Offset: 0,
+		Hues:   map[string]float64{},
+		C:      0.5,
+		L:      0.5,
+		DeltaH: 15,
+		DeltaC: 0.1,
+		DeltaL: 0.4,
+	}
+
 	switch {
 	case colorScheme == "none":
 		colorer = render.NoneColorer{}
+	case colorScheme == "balanced":
+		colorer = treeHueColorer
 	case hasPalette && tree.HasHeat():
 		colorer = render.HeatColorer{Palette: palette}
 	case tree.HasHeat():
 		palette, _ := render.GetPalette("RdBu")
 		colorer = render.HeatColorer{Palette: palette}
 	default:
-		colorer = render.TreeHueColorer{}
+		colorer = treeHueColorer
 	}
 
 	uiBuilder := render.UITreeMapBuilder{
