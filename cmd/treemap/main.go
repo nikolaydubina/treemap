@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"image/color"
 	"io"
 	"log"
 	"os"
@@ -36,6 +37,7 @@ func main() {
 		paddingBox  float64
 		padding     float64
 		colorScheme string
+		colorBorder string
 	)
 
 	flag.Usage = func() {
@@ -48,6 +50,7 @@ func main() {
 	flag.Float64Var(&paddingBox, "padding-box", 4, "padding between box border and content")
 	flag.Float64Var(&padding, "padding", 32, "padding around root content")
 	flag.StringVar(&colorScheme, "color", "balance", "color scheme (RdBu, balance, none)")
+	flag.StringVar(&colorBorder, "color-border", "white", "color of borders (white, black)")
 	flag.Parse()
 
 	in, err := io.ReadAll(os.Stdin)
@@ -96,8 +99,21 @@ func main() {
 		colorer = treeHueColorer
 	}
 
+	borderColor := color.White
+	switch {
+	case colorScheme == "none":
+		borderColor = color.Black
+	case colorBorder == "white":
+		borderColor = color.White
+	case colorBorder == "black":
+		borderColor = color.Black
+	default:
+		borderColor = color.White
+	}
+
 	uiBuilder := render.UITreeMapBuilder{
-		Colorer: colorer,
+		Colorer:     colorer,
+		BorderColor: borderColor,
 	}
 	spec := uiBuilder.NewUITreeMap(*tree, w, h, marginBox, paddingBox, padding)
 	renderer := render.SVGRenderer{}

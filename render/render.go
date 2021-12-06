@@ -37,6 +37,7 @@ type UIBox struct {
 	IsInvisible bool
 	IsRoot      bool
 	Color       color.Color
+	BorderColor color.Color
 }
 
 func (f UIBox) IsEmpty() bool {
@@ -49,7 +50,8 @@ type Colorer interface {
 }
 
 type UITreeMapBuilder struct {
-	Colorer Colorer
+	Colorer     Colorer
+	BorderColor color.Color
 }
 
 func (s UITreeMapBuilder) NewUITreeMap(tree treemap.Tree, w, h, margin, padding, paddingRoot float64) UIBox {
@@ -76,11 +78,12 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 	}
 
 	t := UIBox{
-		X:     x + margin,
-		Y:     y + margin,
-		W:     w - (2 * margin),
-		H:     h - (2 * margin),
-		Color: s.Colorer.ColorBox(tree, node),
+		X:           x + margin,
+		Y:           y + margin,
+		W:           w - (2 * margin),
+		H:           h - (2 * margin),
+		Color:       s.Colorer.ColorBox(tree, node),
+		BorderColor: s.BorderColor,
 	}
 
 	var textHeight float64
