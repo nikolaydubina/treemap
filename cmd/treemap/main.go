@@ -29,7 +29,7 @@ Africa/Benin,8078314,56
 Command options:
 `
 
-var grey = color.RGBA{192, 192, 192, 255}
+var grey = color.RGBA{128, 128, 128, 255}
 
 func main() {
 	var (
