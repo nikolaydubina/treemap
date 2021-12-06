@@ -31,7 +31,7 @@ type HeatColorer struct {
 
 func (s HeatColorer) ColorBox(tree treemap.Tree, node string) color.Color {
 	n, ok := tree.Nodes[node]
-	if !ok {
+	if !ok || !n.HasHeat {
 		return s.Palette.GetInterpolatedColorFor(0.5)
 	}
 	return s.Palette.GetInterpolatedColorFor(n.Heat)

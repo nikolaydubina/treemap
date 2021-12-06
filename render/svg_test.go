@@ -25,13 +25,14 @@ func TestSVGRender(t *testing.T) {
 					Scale: 10,
 					Color: color.Black,
 				},
-				X:        1,
-				Y:        2,
-				W:        3,
-				H:        4,
-				Children: []UIBox{},
-				IsRoot:   true,
-				Color:    color.Black,
+				X:           1,
+				Y:           2,
+				W:           3,
+				H:           4,
+				Children:    []UIBox{},
+				IsRoot:      true,
+				Color:       color.Black,
+				BorderColor: color.Opaque,
 			},
 			w: 10,
 			h: 10,
@@ -43,13 +44,13 @@ func TestSVGRender(t *testing.T) {
 	style="background: white none repeat scroll 0% 0%;"
 >
 <g>
-	<rect x="1.000000" y="2.000000" width="3.000000" height="4.000000" style="fill: rgba(0, 0, 0, 65535);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;" />
+	<rect x="1.000000" y="2.000000" width="3.000000" height="4.000000" style="fill: rgba(0, 0, 0, 65535);opacity:1;fill-opacity:1;stroke:rgba(255,255,255,65535);stroke-width:1px;stroke-opacity:1;" />
 	
 <text 
 	data-notex="1" 
 	text-anchor="start"
 	transform="translate(1.000000,6.000000) scale(10.000000)"
-	style="font-family: Open Sans, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">123</text>
 		
 </g>

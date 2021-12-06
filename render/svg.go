@@ -50,6 +50,14 @@ func BoxSVG(q UIBox) string {
 	g = g >> 8
 	b = b >> 8
 
+	br, bg, bb, ba := color.White.RGBA()
+	if q.BorderColor != color.Opaque {
+		br, bg, bb, ba = q.BorderColor.RGBA()
+	}
+	br = br >> 8
+	bg = bg >> 8
+	bb = bb >> 8
+
 	return fmt.Sprintf(`
 <g>
 	<rect x="%f" y="%f" width="%f" height="%f" style="%s" />
@@ -60,7 +68,7 @@ func BoxSVG(q UIBox) string {
 		q.Y,
 		q.W,
 		q.H,
-		fmt.Sprintf("fill: rgba(%d, %d, %d, %d);opacity:1;fill-opacity:1;stroke:grey;stroke-width:1px;stroke-opacity:1;", r, g, b, a),
+		fmt.Sprintf("fill: rgba(%d, %d, %d, %d);opacity:1;fill-opacity:1;stroke:rgba(%d,%d,%d,%d);stroke-width:1px;stroke-opacity:1;", r, g, b, a, br, bg, bb, ba),
 		TextSVG(q.Title),
 	)
 }
@@ -90,7 +98,7 @@ func TextSVG(t *UIText) string {
 		t.X,
 		t.Y+t.H,
 		t.Scale,
-		fmt.Sprintf("font-family: Open Sans, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d, %d); fill-opacity: 1; white-space: pre;", fontSize, r, g, b, a),
+		fmt.Sprintf("font-family: Open Sans, verdana, arial, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d, %d); fill-opacity: 1; white-space: pre;", fontSize, r, g, b, a),
 		t.Text,
 	)
 	return s

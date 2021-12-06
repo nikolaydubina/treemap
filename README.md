@@ -26,6 +26,12 @@ $ ... | treemap -w 1080 -h 1080 > out.svg
 ```
 ![example-square](./docs/gapminder-2007-population-life-1080x1080.svg)
 
+Imputing heat
+```bash
+$ ... | treemap -impute-heat > out.svg
+```
+![example-narrow](./docs/gapminder-2007-population-life-impute-heat.svg)
+
 Tree-Hue coloring when there is no heat
 ```
 $ ... | treemap -color balanced > out.svg
@@ -50,6 +56,7 @@ Size and heat is optional.
 
 * `Squarified` algorithm for treemap layout problem. This is very common algorithm used in Plotly and most of visualization packages. _"Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk, 2000_
 * `Tree-Hue Color` algorithm for generating colors for nodes in treemap. The idea is to represent hierarchical structure by recursively painting similar hue to subtrees. _Nikolay Dubina, 2021_
+
 
 ## Contributions
 
