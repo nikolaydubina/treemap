@@ -26,6 +26,12 @@ $ ... | treemap -w 1080 -h 1080 > out.svg
 ```
 ![example-square](./docs/gapminder-2007-population-life-1080x1080.svg)
 
+Imputing heat
+```bash
+$ ... | treemap -impute-heat > out.svg
+```
+![example-narrow](./docs/gapminder-2007-population-life-impute-heat.svg)
+
 Tree-Hue coloring when there is no heat
 ```
 $ ... | treemap -color balanced > out.svg

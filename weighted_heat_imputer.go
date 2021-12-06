@@ -30,9 +30,9 @@ func (s WeightedHeatImputer) ImputeHeatNode(t Tree, node string) {
 				totalSize += childSize
 			}
 
-			v = 0
+			v = 0.0
 			for i := range sizes {
-				v += sizes[i] / totalSize * heats[i]
+				v += heats[i] * sizes[i] / totalSize
 			}
 		}
 

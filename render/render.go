@@ -13,6 +13,7 @@ const (
 	textWidthMultiplier  float64 = 0.8
 	tooSmallBoxHeight    float64 = 5
 	tooSmallBoxWidth     float64 = 5
+	textMarginH          float64 = 2
 )
 
 // UIText is spec on how to render text.
@@ -87,17 +88,18 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 	}
 
 	var textHeight float64
-	if title := tree.Nodes[node].Name(); title != "" {
+	if title := tree.Nodes[node].Name(); title != "" && title != "some-secret-string" {
 		// fit text
-		w := t.W - (2 * padding)
-		h := t.H - (2 * padding)
+		// margin here and padding to account for children
+		w := t.W - (2 * padding) - (2 * margin)
+		h := t.H - (2 * padding) - (2 * margin) - (2 * textMarginH)
 		if scale, th := fitText(title, fontSize, w); scale > 0 && th > 0 && th < h {
 			textHeight = th
 			// if enough space for text, then add
 			t.Title = &UIText{
 				Text:  title,
-				X:     t.X + padding,
-				Y:     t.Y + padding,
+				X:     t.X + padding + margin,
+				Y:     t.Y + padding + textMarginH,
 				W:     w,
 				H:     textHeight,
 				Scale: scale,
@@ -117,9 +119,9 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 
 	childrenContainer := layout.Box{
 		X: t.X + padding,
-		Y: t.Y + padding + textHeight,
+		Y: t.Y + padding + textHeight + (2 * textMarginH),
 		W: t.W - (2 * padding),
-		H: t.H - (2 * padding) - textHeight,
+		H: t.H - (2 * padding) - textHeight - (2 * textMarginH),
 	}
 	boxes := layout.Squarify(childrenContainer, areas)
 

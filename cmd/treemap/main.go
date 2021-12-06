@@ -38,6 +38,7 @@ func main() {
 		padding     float64
 		colorScheme string
 		colorBorder string
+		imputeHeat  bool
 	)
 
 	flag.Usage = func() {
@@ -51,6 +52,7 @@ func main() {
 	flag.Float64Var(&padding, "padding", 32, "padding around root content")
 	flag.StringVar(&colorScheme, "color", "balance", "color scheme (RdBu, balance, none)")
 	flag.StringVar(&colorBorder, "color-border", "white", "color of borders (white, black)")
+	flag.BoolVar(&imputeHeat, "impute-heat", false, "impute heat for parents(weighted sum) and leafs(0.5)")
 	flag.Parse()
 
 	in, err := io.ReadAll(os.Stdin)
@@ -67,8 +69,10 @@ func main() {
 	sizeImputer := treemap.SumSizeImputer{EmptyLeafSize: 1}
 	sizeImputer.ImputeSize(*tree)
 
-	heatImputer := treemap.WeightedHeatImputer{EmptyLeafHeat: 0.5}
-	heatImputer.ImputeHeat(*tree)
+	if imputeHeat {
+		heatImputer := treemap.WeightedHeatImputer{EmptyLeafHeat: 0.5}
+		heatImputer.ImputeHeat(*tree)
+	}
 
 	tree.NormalizeHeat()
 
@@ -80,9 +84,9 @@ func main() {
 		Hues:   map[string]float64{},
 		C:      0.5,
 		L:      0.5,
-		DeltaH: 15,
+		DeltaH: 10,
 		DeltaC: 0.1,
-		DeltaL: 0.4,
+		DeltaL: 0.1,
 	}
 
 	switch {

@@ -98,7 +98,7 @@ func TextSVG(t *UIText) string {
 		t.X,
 		t.Y+t.H,
 		t.Scale,
-		fmt.Sprintf("font-family: Open Sans, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d, %d); fill-opacity: 1; white-space: pre;", fontSize, r, g, b, a),
+		fmt.Sprintf("font-family: Open Sans, verdana, arial, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d, %d); fill-opacity: 1; white-space: pre;", fontSize, r, g, b, a),
 		t.Text,
 	)
 	return s
