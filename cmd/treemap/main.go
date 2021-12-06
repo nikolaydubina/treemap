@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/nikolaydubina/treemap"
 	"github.com/nikolaydubina/treemap/parser"
 	"github.com/nikolaydubina/treemap/render"
 )
@@ -59,6 +60,12 @@ func main() {
 	if err != nil || tree == nil {
 		log.Fatal(err)
 	}
+
+	sizeImputer := treemap.SumSizeImputer{EmptyLeafSize: 1}
+	sizeImputer.ImputeSize(*tree)
+
+	heatImputer := treemap.WeightedHeatImputer{EmptyLeafHeat: 0.5}
+	heatImputer.ImputeHeat(*tree)
 
 	tree.NormalizeHeat()
 

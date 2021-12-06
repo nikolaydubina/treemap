@@ -99,9 +99,9 @@ func TestMakeTree(t *testing.T) {
 				{Path: "b/d"},
 			},
 			expTree: &treemap.Tree{
-				Root: "<some-secret-string>",
+				Root: "some-secret-string",
 				To: map[string][]string{
-					"<some-secret-string>": {
+					"some-secret-string": {
 						"a",
 						"b",
 					},
@@ -173,9 +173,10 @@ func TestParseNodes(t *testing.T) {
 			in:   "a/b/c,10,11",
 			expNodes: []treemap.Node{
 				{
-					Path: "a/b/c",
-					Size: 10,
-					Heat: 11,
+					Path:    "a/b/c",
+					Size:    10,
+					Heat:    11,
+					HasHeat: true,
 				},
 			},
 		},

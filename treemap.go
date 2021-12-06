@@ -6,9 +6,10 @@ import "strings"
 const minHeatDifferenceForHeatmap float64 = 0.0000001
 
 type Node struct {
-	Path string
-	Size float64
-	Heat float64
+	Path    string
+	Size    float64
+	Heat    float64
+	HasHeat bool
 }
 
 func (n Node) Name() string {
@@ -33,18 +34,23 @@ func (t Tree) HasHeat() bool {
 func (t Tree) HeatRange() (minHeat float64, maxHeat float64) {
 	first := true
 	for _, node := range t.Nodes {
+		if !node.HasHeat {
+			continue
+		}
+		h := node.Heat
+
 		if first {
-			minHeat = node.Heat
-			maxHeat = node.Heat
+			minHeat = h
+			maxHeat = h
 			first = false
 			continue
 		}
 
-		if node.Heat > maxHeat {
-			maxHeat = node.Heat
+		if h > maxHeat {
+			maxHeat = h
 		}
-		if node.Heat < minHeat {
-			minHeat = node.Heat
+		if h < minHeat {
+			minHeat = h
 		}
 	}
 	return minHeat, maxHeat
@@ -58,14 +64,15 @@ func (t Tree) NormalizeHeat() {
 	}
 
 	for path, node := range t.Nodes {
-		if node.Heat == 0 {
+		if !node.HasHeat {
 			continue
 		}
 
 		n := Node{
-			Path: node.Path,
-			Size: node.Size,
-			Heat: (node.Heat - minHeat) / (maxHeat - minHeat),
+			Path:    node.Path,
+			Size:    node.Size,
+			Heat:    (node.Heat - minHeat) / (maxHeat - minHeat),
+			HasHeat: true,
 		}
 		t.Nodes[path] = n
 	}

@@ -24,28 +24,7 @@ func (s CSVTreeParser) ParseString(in string) (*treemap.Tree, error) {
 		return nil, fmt.Errorf("can not make tree: %w", err)
 	}
 
-	fillSizeIfAllEmpty(*tree)
-
 	return tree, nil
-}
-
-func fillSizeIfAllEmpty(tree treemap.Tree) {
-	allZeroSize := true
-	for _, node := range tree.Nodes {
-		if node.Size > 0 {
-			allZeroSize = false
-			break
-		}
-	}
-	if allZeroSize {
-		for i, node := range tree.Nodes {
-			tree.Nodes[i] = treemap.Node{
-				Path: node.Path,
-				Size: 1,
-				Heat: node.Heat,
-			}
-		}
-	}
 }
 
 func parseNodes(in string) ([]treemap.Node, error) {
@@ -80,6 +59,7 @@ func parseNodes(in string) ([]treemap.Node, error) {
 				return nil, fmt.Errorf("heat(%s) is not float: %w", record[2], err)
 			}
 			node.Heat = v
+			node.HasHeat = true
 		}
 
 		nodes = append(nodes, node)
@@ -132,7 +112,7 @@ func makeTree(nodes []treemap.Node) (*treemap.Tree, error) {
 	case len(roots) == 0:
 		return nil, errors.New("no roots, possible cycle in graph")
 	case len(roots) > 1:
-		tree.Root = "<some-secret-string>"
+		tree.Root = "some-secret-string"
 		tree.To[tree.Root] = roots
 	default:
 		tree.Root = roots[0]
