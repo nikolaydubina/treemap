@@ -57,6 +57,14 @@ Size and heat is optional.
 * `Squarified` algorithm for treemap layout problem. This is very common algorithm used in Plotly and most of visualization packages. _"Squarified Treemaps", Mark Bruls, Kees Huizing, and Jarke J. van Wijk, 2000_
 * `Tree-Hue Color` algorithm for generating colors for nodes in treemap. The idea is to represent hierarchical structure by recursively painting similar hue to subtrees. _Nikolay Dubina, 2021_
 
+## Cookbook
+
+### File tree
+
+```bash
+$ find . | treemap > file-tree.svg
+```
+
 ## Contributions
 
 Welcomed!

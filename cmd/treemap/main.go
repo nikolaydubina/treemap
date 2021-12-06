@@ -85,7 +85,7 @@ func main() {
 		C:      0.5,
 		L:      0.5,
 		DeltaH: 10,
-		DeltaC: 0.1,
+		DeltaC: 0.3,
 		DeltaL: 0.1,
 	}
 
