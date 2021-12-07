@@ -21,6 +21,6 @@ docs:
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -impute-heat > docs/gapminder-2007-population-life-impute-heat.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color balanced > docs/gapminder-2007-population-life-balanced.svg
 	#cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
-	cat testdata/gapminder-2007-population-life.csv | ./treemap -color RdYlGn > docs/gapminder-2007-population-RdYlGn.svg
+	cat testdata/gapminder-2007-population-life.csv | ./treemap -color RdYlGn > docs/gapminder-2007-population-life-RdYlGn.svg
 
 .PHONY: all clean build cover docs
