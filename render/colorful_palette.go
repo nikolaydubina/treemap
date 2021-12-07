@@ -39,6 +39,9 @@ func (gt ColorfulPalette) GetInterpolatedColorFor(t float64) color.Color {
 //go:embed palettes/ReBu.csv
 var paletteReBuCSV string
 
+//go:embed palettes/RdYlGn.csv
+var paletteRdYlGnCSV string
+
 func makePaletteFromCSV(csv string) ColorfulPalette {
 	rows := strings.Split(csv, "\n")
 	palette := make(ColorfulPalette, len(rows))
@@ -70,6 +73,8 @@ func GetPalette(name string) (ColorfulPalette, bool) {
 	switch name {
 	case "RdBu":
 		return makePaletteFromCSV(paletteReBuCSV), true
+        case "RdYlGn":
+                return makePaletteFromCSV(paletteRdYlGnCSV), true
 	default:
 		return nil, false
 	}

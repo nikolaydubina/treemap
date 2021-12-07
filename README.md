@@ -32,6 +32,13 @@ $ ... | treemap -impute-heat > out.svg
 ```
 ![example-narrow](./docs/gapminder-2007-population-life-impute-heat.svg)
 
+Different colorscheme
+```bash
+$ ... | treemap -color RdYlGn > out.svg
+```
+![example-RdYlGn](./docs/gapminder-2007-population-life-RdYlGn.svg)
+
+
 Tree-Hue coloring when there is no heat
 ```
 $ ... | treemap -color balanced > out.svg
