@@ -39,6 +39,7 @@ func (s WeightedHeatImputer) ImputeHeatNode(t Tree, node string) {
 
 		t.Nodes[node] = Node{
 			Path:    t.Nodes[node].Path,
+			Name:    t.Nodes[node].Name,
 			Size:    t.Nodes[node].Size,
 			Heat:    v,
 			HasHeat: true,

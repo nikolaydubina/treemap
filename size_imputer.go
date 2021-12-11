@@ -1,5 +1,7 @@
 package treemap
 
+import "strings"
+
 // SumSizeImputer will set sum of children into empty parents and fill children with contant.
 type SumSizeImputer struct {
 	EmptyLeafSize float64
@@ -22,8 +24,14 @@ func (s SumSizeImputer) ImputeSizeNode(t Tree, node string) {
 			v = sum
 		}
 
+		var name string
+		if parts := strings.Split(node, "/"); len(parts) > 0 {
+			name = parts[len(parts)-1]
+		}
+
 		t.Nodes[node] = Node{
 			Path: node,
+			Name: name,
 			Size: v,
 		}
 	}

@@ -13,12 +13,6 @@
 
 
 <g>
-	<rect x="1028.313313" y="794.639163" width="7.686687" height="241.360837" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
 	<rect x="653.813756" y="794.639163" width="366.499557" height="241.360837" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
 	
 <text 
@@ -27,19 +21,6 @@
 	transform="translate(661.813756,810.239163) scale(1.000000)"
 	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">Europe</text>
-		
-</g>
-
-
-<g>
-	<rect x="653.813756" y="427.581388" width="382.186244" height="359.057775" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(661.813756,443.181388) scale(1.000000)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Americas</text>
 		
 </g>
 
@@ -66,6 +47,25 @@
 	transform="translate(661.813756,63.600000) scale(1.000000)"
 	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">Africa</text>
+		
+</g>
+
+
+<g>
+	<rect x="1028.313313" y="794.639163" width="7.686687" height="241.360837" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="653.813756" y="427.581388" width="382.186244" height="359.057775" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(661.813756,443.181388) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Americas</text>
 		
 </g>
 
@@ -325,240 +325,6 @@
 	transform="translate(763.741758,941.997012) scale(0.376029)"
 	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">United Kingdom</text>
-		
-</g>
-
-
-<g>
-	<rect x="955.077250" y="539.149767" width="72.922750" height="61.962445" style="fill: rgba(52, 133, 189, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(963.077250,554.749767) scale(0.658828)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Argentina</text>
-		
-</g>
-
-
-<g>
-	<rect x="951.377409" y="682.070888" width="35.791156" height="21.253500" style="fill: rgba(207, 228, 240, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="661.813756" y="656.087411" width="196.458435" height="122.551751" style="fill: rgba(98, 166, 205, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(669.813756,671.687411) scale(1.000000)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Brazil</text>
-		
-</g>
-
-
-<g>
-	<rect x="866.272192" y="609.112212" width="56.291137" height="64.958676" style="fill: rgba(19, 71, 130, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(874.272192,624.712212) scale(0.699499)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Canada</text>
-		
-</g>
-
-
-<g>
-	<rect x="866.272192" y="682.070888" width="32.356721" height="48.685866" style="fill: rgba(31, 99, 168, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(874.272192,697.670888) scale(0.340765)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Chile</text>
-		
-</g>
-
-
-<g>
-	<rect x="866.272192" y="539.149767" width="80.805058" height="61.962445" style="fill: rgba(88, 160, 202, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(874.272192,554.749767) scale(0.843816)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Colombia</text>
-		
-</g>
-
-
-<g>
-	<rect x="978.280291" y="741.363626" width="17.058938" height="15.174236" style="fill: rgba(30, 96, 163, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="906.628912" y="721.540947" width="36.748497" height="27.841226" style="fill: rgba(33, 102, 172, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="906.628912" y="757.382173" width="36.748497" height="21.256990" style="fill: rgba(101, 168, 206, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="866.272192" y="738.756754" width="32.356721" height="39.882409" style="fill: rgba(55, 137, 191, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(874.272192,754.356754) scale(0.243404)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Ecuador</text>
-		
-</g>
-
-
-<g>
-	<rect x="951.377409" y="750.402271" width="18.902882" height="28.236892" style="fill: rgba(107, 172, 208, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="906.628912" y="682.070888" width="36.748497" height="31.470059" style="fill: rgba(136, 191, 219, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(914.628912,697.670888) scale(0.240145)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Guatemala</text>
-		
-</g>
-
-
-<g>
-	<rect x="995.168566" y="682.070888" width="32.831434" height="21.253500" style="fill: rgba(248, 246, 246, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="951.377409" y="711.324388" width="18.902882" height="31.077882" style="fill: rgba(137, 192, 219, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(959.377409,726.924388) scale(0.037798)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Honduras</text>
-		
-</g>
-
-
-<g>
-	<rect x="1003.339229" y="770.136815" width="15.666252" height="8.502348" style="fill: rgba(94, 164, 204, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="866.272192" y="449.181388" width="161.727808" height="81.968380" style="fill: rgba(44, 124, 185, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(874.272192,464.781388) scale(1.000000)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Mexico</text>
-		
-</g>
-
-
-<g>
-	<rect x="1009.459201" y="711.324388" width="18.540799" height="22.039238" style="fill: rgba(88, 160, 202, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="1020.170836" y="741.363626" width="7.829164" height="20.773189" style="fill: rgba(50, 131, 188, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="978.280291" y="711.324388" width="23.178910" height="22.039238" style="fill: rgba(109, 173, 209, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="930.563329" y="609.112212" width="47.211888" height="64.958676" style="fill: rgba(115, 177, 211, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(938.563329,624.712212) scale(0.812810)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Peru</text>
-		
-</g>
-
-
-<g>
-	<rect x="978.280291" y="764.537862" width="17.058938" height="14.101301" style="fill: rgba(30, 96, 164, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="1027.005481" y="770.136815" width="0.994519" height="8.502348" style="fill: rgba(144, 196, 222, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="661.813756" y="449.181388" width="196.458435" height="198.906024" style="fill: rgba(33, 103, 173, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(669.813756,464.781388) scale(1.000000)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">United States</text>
-		
-</g>
-
-
-<g>
-	<rect x="1003.339229" y="741.363626" width="8.831607" height="20.773189" style="fill: rgba(42, 122, 184, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
-	<rect x="985.775217" y="609.112212" width="42.224783" height="64.958676" style="fill: rgba(72, 150, 197, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-<text 
-	data-notex="1" 
-	text-anchor="start"
-	transform="translate(993.775217,624.712212) scale(0.303528)"
-	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
-	data-math="N">Venezuela</text>
 		
 </g>
 
@@ -1375,6 +1141,240 @@
 	transform="translate(1007.285875,245.302924) scale(0.165549)"
 	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">Zimbabwe</text>
+		
+</g>
+
+
+<g>
+	<rect x="955.077250" y="539.149767" width="72.922750" height="61.962445" style="fill: rgba(52, 133, 189, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(963.077250,554.749767) scale(0.658828)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Argentina</text>
+		
+</g>
+
+
+<g>
+	<rect x="951.377409" y="682.070888" width="35.791156" height="21.253500" style="fill: rgba(207, 228, 240, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="661.813756" y="656.087411" width="196.458435" height="122.551751" style="fill: rgba(98, 166, 205, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(669.813756,671.687411) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Brazil</text>
+		
+</g>
+
+
+<g>
+	<rect x="866.272192" y="609.112212" width="56.291137" height="64.958676" style="fill: rgba(19, 71, 130, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(874.272192,624.712212) scale(0.699499)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Canada</text>
+		
+</g>
+
+
+<g>
+	<rect x="866.272192" y="682.070888" width="32.356721" height="48.685866" style="fill: rgba(31, 99, 168, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(874.272192,697.670888) scale(0.340765)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Chile</text>
+		
+</g>
+
+
+<g>
+	<rect x="866.272192" y="539.149767" width="80.805058" height="61.962445" style="fill: rgba(88, 160, 202, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(874.272192,554.749767) scale(0.843816)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Colombia</text>
+		
+</g>
+
+
+<g>
+	<rect x="978.280291" y="741.363626" width="17.058938" height="15.174236" style="fill: rgba(30, 96, 163, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="906.628912" y="721.540947" width="36.748497" height="27.841226" style="fill: rgba(33, 102, 172, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="906.628912" y="757.382173" width="36.748497" height="21.256990" style="fill: rgba(101, 168, 206, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="866.272192" y="738.756754" width="32.356721" height="39.882409" style="fill: rgba(55, 137, 191, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(874.272192,754.356754) scale(0.243404)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Ecuador</text>
+		
+</g>
+
+
+<g>
+	<rect x="951.377409" y="750.402271" width="18.902882" height="28.236892" style="fill: rgba(107, 172, 208, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="906.628912" y="682.070888" width="36.748497" height="31.470059" style="fill: rgba(136, 191, 219, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(914.628912,697.670888) scale(0.240145)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Guatemala</text>
+		
+</g>
+
+
+<g>
+	<rect x="995.168566" y="682.070888" width="32.831434" height="21.253500" style="fill: rgba(248, 246, 246, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="951.377409" y="711.324388" width="18.902882" height="31.077882" style="fill: rgba(137, 192, 219, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(959.377409,726.924388) scale(0.037798)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Honduras</text>
+		
+</g>
+
+
+<g>
+	<rect x="1003.339229" y="770.136815" width="15.666252" height="8.502348" style="fill: rgba(94, 164, 204, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="866.272192" y="449.181388" width="161.727808" height="81.968380" style="fill: rgba(44, 124, 185, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(874.272192,464.781388) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Mexico</text>
+		
+</g>
+
+
+<g>
+	<rect x="1009.459201" y="711.324388" width="18.540799" height="22.039238" style="fill: rgba(88, 160, 202, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="1020.170836" y="741.363626" width="7.829164" height="20.773189" style="fill: rgba(50, 131, 188, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="978.280291" y="711.324388" width="23.178910" height="22.039238" style="fill: rgba(109, 173, 209, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="930.563329" y="609.112212" width="47.211888" height="64.958676" style="fill: rgba(115, 177, 211, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(938.563329,624.712212) scale(0.812810)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Peru</text>
+		
+</g>
+
+
+<g>
+	<rect x="978.280291" y="764.537862" width="17.058938" height="14.101301" style="fill: rgba(30, 96, 164, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="1027.005481" y="770.136815" width="0.994519" height="8.502348" style="fill: rgba(144, 196, 222, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="661.813756" y="449.181388" width="196.458435" height="198.906024" style="fill: rgba(33, 103, 173, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(669.813756,464.781388) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">United States</text>
+		
+</g>
+
+
+<g>
+	<rect x="1003.339229" y="741.363626" width="8.831607" height="20.773189" style="fill: rgba(42, 122, 184, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+</g>
+
+
+<g>
+	<rect x="985.775217" y="609.112212" width="42.224783" height="64.958676" style="fill: rgba(72, 150, 197, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(993.775217,624.712212) scale(0.303528)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
+	data-math="N">Venezuela</text>
 		
 </g>
 

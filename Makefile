@@ -20,7 +20,10 @@ docs:
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color RedBlu > docs/gapminder-2007-population-life-RedBlu.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -impute-heat > docs/gapminder-2007-population-life-impute-heat.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color balanced > docs/gapminder-2007-population-life-balanced.svg
-	#cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
 	cat testdata/gapminder-2007-population-life.csv | ./treemap -color RdYlGn > docs/gapminder-2007-population-life-RdYlGn.svg
+	cat testdata/long-roots.csv | ./treemap > docs/long-roots.svg
+	cat testdata/long-roots.csv | ./treemap -collapse-root > docs/long-roots-collapse.svg
+	cat testdata/gapminder-2007-population-life.csv | ./treemap -collapse-root > docs/gapminder-2007-population-life-collapse.svg
+	#cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
 
 .PHONY: all clean build cover docs

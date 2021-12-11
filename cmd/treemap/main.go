@@ -33,14 +33,15 @@ var grey = color.RGBA{128, 128, 128, 255}
 
 func main() {
 	var (
-		w           float64
-		h           float64
-		marginBox   float64
-		paddingBox  float64
-		padding     float64
-		colorScheme string
-		colorBorder string
-		imputeHeat  bool
+		w            float64
+		h            float64
+		marginBox    float64
+		paddingBox   float64
+		padding      float64
+		colorScheme  string
+		colorBorder  string
+		imputeHeat   bool
+		collapseRoot bool
 	)
 
 	flag.Usage = func() {
@@ -55,6 +56,7 @@ func main() {
 	flag.StringVar(&colorScheme, "color", "balance", "color scheme (RdBu, balance, none)")
 	flag.StringVar(&colorBorder, "color-border", "auto", "color of borders (light, dark, auto)")
 	flag.BoolVar(&imputeHeat, "impute-heat", false, "impute heat for parents(weighted sum) and leafs(0.5)")
+	flag.BoolVar(&collapseRoot, "collapse-root", false, "if true then will collapse root into single node with size and heat of child")
 	flag.Parse()
 
 	in, err := io.ReadAll(os.Stdin)
@@ -66,6 +68,11 @@ func main() {
 	tree, err := parser.ParseString(string(in))
 	if err != nil || tree == nil {
 		log.Fatal(err)
+	}
+
+	treemap.SetNamesFromPaths(tree)
+	if collapseRoot {
+		treemap.CollapseRoot(tree)
 	}
 
 	sizeImputer := treemap.SumSizeImputer{EmptyLeafSize: 1}

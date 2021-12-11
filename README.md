@@ -83,7 +83,15 @@ Welcomed!
 * Plotly color scales source: https://github.com/plotly/plotly.py/blob/master/packages/python/plotly/_plotly_utils/colors/colorbrewer.py
 * Colorbrewer project, that is used in Plotly: http://colorbrewer2.org
 
-## Appendix A: Less Illustrative Examples
+## Appendix A: Long Roots
+
+When roots have one child multiple times it takes extra vertical space, which is very useful for narrow final dimensions.
+![example-long-roots](./docs/long-roots.svg)
+
+Can collapse them into one node with `-collapse-root`
+![example-long-roots-collapse](./docs/long-roots-collapse.svg)
+
+## Appendix B: Less Illustrative Examples
 
 Large dimensions and large tree (e.g. `github.com/golang/go`)
 ```bash
