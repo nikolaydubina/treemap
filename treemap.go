@@ -7,17 +7,10 @@ const minHeatDifferenceForHeatmap float64 = 0.0000001
 
 type Node struct {
 	Path    string
+	Name    string
 	Size    float64
 	Heat    float64
 	HasHeat bool
-}
-
-func (n Node) Name() string {
-	parts := strings.Split(n.Path, "/")
-	if len(parts) == 0 {
-		return ""
-	}
-	return parts[len(parts)-1]
 }
 
 type Tree struct {
@@ -70,10 +63,58 @@ func (t Tree) NormalizeHeat() {
 
 		n := Node{
 			Path:    node.Path,
+			Name:    node.Name,
 			Size:    node.Size,
 			Heat:    (node.Heat - minHeat) / (maxHeat - minHeat),
 			HasHeat: true,
 		}
 		t.Nodes[path] = n
+	}
+}
+
+// SetNamesFromPaths will update each node to its path leaf as name.
+func SetNamesFromPaths(t *Tree) {
+	if t == nil {
+		return
+	}
+	for path, node := range t.Nodes {
+		parts := strings.Split(node.Path, "/")
+		if len(parts) == 0 {
+			continue
+		}
+
+		t.Nodes[path] = Node{
+			Path:    node.Path,
+			Name:    parts[len(parts)-1],
+			Size:    node.Size,
+			Heat:    node.Heat,
+			HasHeat: node.HasHeat,
+		}
+	}
+}
+
+// CollapseRoot will remove root nodes up to first child that have multiple children.
+// Will set name of this node to joined path from roots.
+// Will set size and heat to this child's size and heat.
+func CollapseRoot(t *Tree) {
+	if t == nil {
+		return
+	}
+
+	q := t.Root
+	for children := t.To[q]; len(children) == 1; {
+		q = children[0]
+		children = t.To[q]
+	}
+
+	t.Root = q
+
+	node := t.Nodes[q]
+	t.Nodes[q] = Node{
+		Path:    node.Path,
+		Name:    node.Path,
+		Size:    node.Size,
+		Heat:    node.Heat,
+		HasHeat: node.HasHeat,
 	}
 }
