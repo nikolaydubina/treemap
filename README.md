@@ -1,5 +1,7 @@
 # 🍬 Pretty Treemaps
 
+> _Looking to run this for Go coverage? Check https://github.com/nikolaydubina/go-cover-treemap_
+
 [![Go Reference](https://pkg.go.dev/badge/github.com/nikolaydubina/treemap.svg)](https://pkg.go.dev/github.com/nikolaydubina/treemap)
 [![codecov](https://codecov.io/gh/nikolaydubina/treemap/branch/main/graph/badge.svg?token=h3S894POFO)](https://codecov.io/gh/nikolaydubina/treemap)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nikolaydubina/treemap)](https://goreportcard.com/report/github.com/nikolaydubina/treemap)
