@@ -88,10 +88,19 @@ Welcomed!
 ## Appendix A: Long Roots
 
 When roots have one child multiple times it takes extra vertical space, which is very useful for narrow final dimensions.
-![example-long-roots](./docs/long-roots.svg)
 
-Can collapse them into one node with `-collapse-root`
-![example-long-roots-collapse](./docs/long-roots-collapse.svg)
+![example-long-roots](./docs/long-roots-long-roots.svg)
+
+Can collapse them into one node
+![example-long-roots-collapse](./docs/long-roots.svg)
+
+Long roots without collapsing somewhere deep inside
+
+![](./docs/hugo-binsize-nocolor-large-long-roots.svg)
+
+Long roots with collapsing somewhere deep inside
+
+![](./docs/hugo-binsize-nocolor-large.svg)
 
 ## Appendix B: Less Illustrative Examples
 

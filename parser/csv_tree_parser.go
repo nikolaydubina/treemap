@@ -5,12 +5,16 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"math"
 	"strconv"
 	"strings"
 
 	"github.com/nikolaydubina/treemap"
 )
 
+// if duplicates, then sum size
+// if duplicates, then max heat
+// TODO: policies for duplicates
 type CSVTreeParser struct{}
 
 func (s CSVTreeParser) ParseString(in string) (*treemap.Tree, error) {
@@ -79,8 +83,14 @@ func makeTree(nodes []treemap.Node) (*treemap.Tree, error) {
 	hasParent := map[string]bool{}
 
 	for _, node := range nodes {
-		if _, ok := tree.Nodes[node.Path]; ok {
-			return nil, fmt.Errorf("duplicate node(%s)", node.Path)
+		if existingNode, ok := tree.Nodes[node.Path]; ok {
+			tree.Nodes[node.Path] = treemap.Node{
+				Path:    existingNode.Path,
+				Name:    existingNode.Name,
+				Size:    existingNode.Size + node.Size,
+				Heat:    math.Max(existingNode.Heat, node.Heat),
+				HasHeat: existingNode.HasHeat || node.HasHeat,
+			}
 		}
 		tree.Nodes[node.Path] = node
 
@@ -90,6 +100,12 @@ func makeTree(nodes []treemap.Node) (*treemap.Tree, error) {
 		for parent, i := parts[0], 1; i < len(parts); i++ {
 			child := parent + "/" + parts[i]
 
+			if _, ok := tree.Nodes[parent]; !ok {
+				tree.Nodes[parent] = treemap.Node{
+					Path:    parent,
+					HasHeat: false,
+				}
+			}
 			tree.To[parent] = append(tree.To[parent], child)
 			hasParent[child] = true
 

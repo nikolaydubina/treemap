@@ -92,29 +92,3 @@ func SetNamesFromPaths(t *Tree) {
 		}
 	}
 }
-
-// CollapseRoot will remove root nodes up to first child that have multiple children.
-// Will set name of this node to joined path from roots.
-// Will set size and heat to this child's size and heat.
-func CollapseRoot(t *Tree) {
-	if t == nil {
-		return
-	}
-
-	q := t.Root
-	for children := t.To[q]; len(children) == 1; {
-		q = children[0]
-		children = t.To[q]
-	}
-
-	t.Root = q
-
-	node := t.Nodes[q]
-	t.Nodes[q] = Node{
-		Path:    node.Path,
-		Name:    node.Path,
-		Size:    node.Size,
-		Heat:    node.Heat,
-		HasHeat: node.HasHeat,
-	}
-}
