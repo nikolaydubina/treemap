@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: If you reference this library in publication, please cite it as below.
+title: Treemap Visualization in Go
+abstract: Implementation of treemap visualization in Go
+authors:
+- family-names: Dubina
+  given-names: Nikolay
+version: 2.1
+date-released: 2021-12-05
+license: MIT
+repository-code: https://github.com/nikolaydubina/treemap
+url: https://github.com/nikolaydubina/treemap
