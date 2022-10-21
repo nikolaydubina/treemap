@@ -16,74 +16,64 @@ func TestMakeTree(t *testing.T) {
 		expErr  string
 	}{
 		{
-			name: "when one node with virtual nodes, then root is correct and no virtual nodes and edges is correct",
+			name: "one deep node",
 			nodes: []treemap.Node{
 				{Path: "a/b/c"},
 			},
 			expTree: &treemap.Tree{
-				Root: "a",
-				To: map[string][]string{
-					"a/b": {
-						"a/b/c",
-					},
-					"a": {
-						"a/b",
-					},
-				},
 				Nodes: map[string]treemap.Node{
+					"a":     {Path: "a"},
+					"a/b":   {Path: "a/b"},
 					"a/b/c": {Path: "a/b/c"},
 				},
+				To: map[string][]string{
+					"a":   {"a/b"},
+					"a/b": {"a/b/c"},
+				},
+				Root: "a",
 			},
 		},
 		{
-			name: "when multiple nodes same root and same virtual node, then root is correct and no virtual nodes and edges is correct",
+			name: "multiple deep nodes",
 			nodes: []treemap.Node{
 				{Path: "a/b/c"},
 				{Path: "a/b/c/d"},
 				{Path: "a/b/d"},
 			},
 			expTree: &treemap.Tree{
-				Root: "a",
-				To: map[string][]string{
-					"a": {
-						"a/b",
-					},
-					"a/b": {
-						"a/b/c",
-						"a/b/d",
-					},
-					"a/b/c": {
-						"a/b/c/d",
-					},
-				},
 				Nodes: map[string]treemap.Node{
+					"a":       {Path: "a"},
+					"a/b":     {Path: "a/b"},
 					"a/b/c":   {Path: "a/b/c"},
 					"a/b/c/d": {Path: "a/b/c/d"},
 					"a/b/d":   {Path: "a/b/d"},
 				},
+				To: map[string][]string{
+					"a":     {"a/b"},
+					"a/b":   {"a/b/c", "a/b/d"},
+					"a/b/c": {"a/b/c/d"},
+				},
+				Root: "a",
 			},
 		},
 		{
-			name: "when has leading /, then has empty string as root",
+			name: "when has leading slash, then has empty string as root",
 			nodes: []treemap.Node{
 				{Path: "/a/b/c"},
 			},
 			expTree: &treemap.Tree{
-				Root: "",
-				To: map[string][]string{
-					"": {
-						"/a",
-					},
-					"/a": {
-						"/a/b",
-					},
-					"/a/b": {
-						"/a/b/c",
-					},
-				},
 				Nodes: map[string]treemap.Node{
+					"":       {Path: ""},
+					"/a":     {Path: "/a"},
+					"/a/b":   {Path: "/a/b"},
 					"/a/b/c": {Path: "/a/b/c"},
 				},
+				To: map[string][]string{
+					"":     {"/a"},
+					"/a":   {"/a/b"},
+					"/a/b": {"/a/b/c"},
+				},
+				Root: "",
 			},
 		},
 		{
@@ -99,32 +89,36 @@ func TestMakeTree(t *testing.T) {
 				{Path: "b/d"},
 			},
 			expTree: &treemap.Tree{
-				Root: "some-secret-string",
-				To: map[string][]string{
-					"some-secret-string": {
-						"a",
-						"b",
-					},
-					"a": {
-						"a/b",
-					},
-					"b": {
-						"b/d",
-					},
-				},
 				Nodes: map[string]treemap.Node{
+					"a":   {Path: "a"},
 					"a/b": {Path: "a/b"},
+					"b":   {Path: "b"},
 					"b/d": {Path: "b/d"},
 				},
+				To: map[string][]string{
+					"a":                  {"a/b"},
+					"b":                  {"b/d"},
+					"some-secret-string": {"a", "b"},
+				},
+				Root: "some-secret-string",
 			},
 		},
 		{
-			name: "when duplicate nodes, then error",
+			name: "when duplicate nodes, then overrides latest",
 			nodes: []treemap.Node{
 				{Path: "a/b"},
 				{Path: "a/b"},
 			},
-			expErr: "duplicate",
+			expTree: &treemap.Tree{
+				Nodes: map[string]treemap.Node{
+					"a":   {Path: "a", Name: "", Size: 0, Heat: 0, HasHeat: false},
+					"a/b": {Path: "a/b", Name: "", Size: 0, Heat: 0, HasHeat: false},
+				},
+				To: map[string][]string{
+					"a": {"a/b"},
+				},
+				Root: "a",
+			},
 		},
 	}
 	for _, tc := range tests {
