@@ -73,8 +73,8 @@ func GetPalette(name string) (ColorfulPalette, bool) {
 	switch name {
 	case "RdBu":
 		return makePaletteFromCSV(paletteReBuCSV), true
-        case "RdYlGn":
-                return makePaletteFromCSV(paletteRdYlGnCSV), true
+	case "RdYlGn":
+		return makePaletteFromCSV(paletteRdYlGnCSV), true
 	default:
 		return nil, false
 	}
