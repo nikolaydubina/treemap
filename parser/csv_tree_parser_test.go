@@ -138,9 +138,10 @@ func TestMakeTree(t *testing.T) {
 			if tc.expErr != "" {
 				if err == nil {
 					t.Error("expected error, got nil")
-				}
-				if !strings.Contains(err.Error(), tc.expErr) {
-					t.Error("error does not contain expected string")
+				} else {
+					if !strings.Contains(err.Error(), tc.expErr) {
+						t.Error("error does not contain expected string")
+					}
 				}
 			}
 
