@@ -3,6 +3,15 @@ package render
 import (
 	"fmt"
 	"image/color"
+	"strings"
+)
+
+var xmlEscaper = strings.NewReplacer(
+	"&", "&amp;",
+	"<", "&lt;",
+	">", "&gt;",
+	"\"", "&quot;",
+	"'", "&apos;",
 )
 
 type SVGRenderer struct{}
@@ -102,7 +111,7 @@ func TextSVG(t *UIText) string {
 		t.Y+t.H,
 		t.Scale,
 		fmt.Sprintf("font-family: Open Sans, verdana, arial, sans-serif !important; font-size: %dpx; fill: rgb(%d, %d, %d); fill-opacity: %.2f; white-space: pre;", fontSize, r, g, b, o),
-		t.Text,
+		xmlEscaper.Replace(t.Text),
 	)
 	return s
 }
