@@ -26,12 +26,6 @@
 
 
 <g>
-	<rect x="1028.313313" y="794.639163" width="7.686687" height="241.360837" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
-	
-</g>
-
-
-<g>
 	<rect x="653.813756" y="48.000000" width="382.186244" height="371.581388" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
 	
 <text 
@@ -67,6 +61,12 @@
 	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0, 65535); fill-opacity: 1; white-space: pre;" 
 	data-math="N">Asia</text>
 		
+</g>
+
+
+<g>
+	<rect x="1028.313313" y="794.639163" width="7.686687" height="241.360837" style="fill: rgba(248, 247, 247, 65535);opacity:1;fill-opacity:1;stroke:rgba(128,128,128,65535);stroke-width:1px;stroke-opacity:1;" />
+	
 </g>
 
 

@@ -28,6 +28,6 @@ docs:
 	cat testdata/hugo-binsize.csv | ./treemap -color none > docs/hugo-binsize-nocolor.svg
 	cat testdata/hugo-binsize.csv | ./treemap -color none -w 4096 -h 4096 -long-paths > docs/hugo-binsize-nocolor-large-long-roots.svg
 	cat testdata/hugo-binsize.csv | ./treemap -color none -w 4096 -h 4096 > docs/hugo-binsize-nocolor-large.svg
-	#cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
+	cat testdata/find-src-go-dir.csv | ./treemap -h 4096 -w 4096 > docs/find-src-go-dir.svg
 
 .PHONY: all clean build cover docs
