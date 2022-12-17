@@ -188,6 +188,18 @@ func TestParseNodes(t *testing.T) {
 			},
 		},
 		{
+			name: "when quoted field, then no quotes",
+			in:   "\"ab\",1,1",
+			expNodes: []treemap.Node{
+				{
+					Path:    "ab",
+					Size:    1,
+					Heat:    1,
+					HasHeat: true,
+				},
+			},
+		},
+		{
 			name:   "when wrong number, then error",
 			in:     ",,\n\n",
 			expErr: "is not float",
