@@ -1,0 +1,5 @@
+root/A & B
+root/A < B
+root/A > B
+root/"dbl-quoted"
+root/'quoted'

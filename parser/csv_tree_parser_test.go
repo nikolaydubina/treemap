@@ -176,6 +176,30 @@ func TestParseNodes(t *testing.T) {
 			},
 		},
 		{
+			name: "when quotation, then works",
+			in:   "a\"b\",1,1",
+			expNodes: []treemap.Node{
+				{
+					Path:    "a\"b\"",
+					Size:    1,
+					Heat:    1,
+					HasHeat: true,
+				},
+			},
+		},
+		{
+			name: "when quoted field, then no quotes",
+			in:   "\"ab\",1,1",
+			expNodes: []treemap.Node{
+				{
+					Path:    "ab",
+					Size:    1,
+					Heat:    1,
+					HasHeat: true,
+				},
+			},
+		},
+		{
 			name:   "when wrong number, then error",
 			in:     ",,\n\n",
 			expErr: "is not float",
@@ -184,11 +208,6 @@ func TestParseNodes(t *testing.T) {
 			name:   "when wrong number, then error",
 			in:     ",1,\n\n",
 			expErr: "is not float",
-		},
-		{
-			name:   "when wrong quotation, then error",
-			in:     "\"\n\n",
-			expErr: "can not parse",
 		},
 	}
 	for _, tc := range tests {
