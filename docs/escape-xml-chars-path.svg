@@ -1,0 +1,86 @@
+
+<svg 
+	xmlns="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	viewBox="0 0 1028.000000 640.000000" 
+	style="background: white none repeat scroll 0% 0%;"
+>
+
+<g>
+	<rect x="36.000000" y="36.000000" width="956.000000" height="568.000000" style="fill: rgb(45, 137, 120);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(44.000000,51.600000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">root</text>
+		
+</g>
+
+
+<g>
+	<rect x="44.000000" y="57.600000" width="371.200000" height="265.200000" style="fill: rgb(198, 80, 67);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(52.000000,73.200000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">A &amp; B</text>
+		
+</g>
+
+
+<g>
+	<rect x="44.000000" y="330.800000" width="371.200000" height="265.200000" style="fill: rgb(120, 125, 51);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(52.000000,346.400000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">A &lt; B</text>
+		
+</g>
+
+
+<g>
+	<rect x="423.200000" y="57.600000" width="371.200000" height="265.200000" style="fill: rgb(45, 137, 120);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(431.200000,73.200000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">A &gt; B</text>
+		
+</g>
+
+
+<g>
+	<rect x="423.200000" y="330.800000" width="371.200000" height="265.200000" style="fill: rgb(63, 127, 167);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(431.200000,346.400000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">&quot;dbl-quoted&quot;</text>
+		
+</g>
+
+
+<g>
+	<rect x="802.400000" y="57.600000" width="181.600000" height="538.400000" style="fill: rgb(165, 88, 173);opacity:1;fill-opacity:1.00;stroke:rgb(255,255,255);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(810.400000,73.200000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">&apos;quoted&apos;</text>
+		
+</g>
+
+</svg>
