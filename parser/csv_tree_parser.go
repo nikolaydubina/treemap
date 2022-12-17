@@ -34,6 +34,7 @@ func (s CSVTreeParser) ParseString(in string) (*treemap.Tree, error) {
 func parseNodes(in string) ([]treemap.Node, error) {
 	var nodes []treemap.Node
 	r := csv.NewReader(strings.NewReader(in))
+	r.LazyQuotes = true
 	for {
 		record, err := r.Read()
 		if err == io.EOF {
