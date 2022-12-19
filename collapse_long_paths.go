@@ -24,7 +24,7 @@ func CollapseLongPathsFromNode(t *Tree, nodeName string) {
 	for children := t.To[q]; len(children) == 1; children = t.To[q] {
 		nextChild := children[0]
 
-		parts = append(parts, t.Nodes[q].Name)
+		parts = append(parts, slashToEntity.Replace(t.Nodes[q].Name))
 		delete(t.Nodes, q)
 		delete(t.To, q)
 
@@ -40,7 +40,7 @@ func CollapseLongPathsFromNode(t *Tree, nodeName string) {
 		node := t.Nodes[q]
 
 		// add last child node name to path
-		parts = append(parts, node.Name)
+		parts = append(parts, slashToEntity.Replace(node.Name))
 
 		// copy fields from child to current node
 		t.Nodes[nodeName] = Node{

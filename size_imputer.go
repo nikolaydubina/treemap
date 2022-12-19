@@ -26,7 +26,7 @@ func (s SumSizeImputer) ImputeSizeNode(t Tree, node string) {
 
 		var name string
 		if parts := strings.Split(node, "/"); len(parts) > 0 {
-			name = parts[len(parts)-1]
+			name = entityToSlash.Replace(parts[len(parts)-1])
 		}
 
 		t.Nodes[node] = Node{

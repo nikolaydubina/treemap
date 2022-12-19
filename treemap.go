@@ -5,6 +5,14 @@ import "strings"
 // for numerical stability
 const minHeatDifferenceForHeatmap float64 = 0.0000001
 
+var entityToSlash = strings.NewReplacer(
+	"&sol;", "/",
+)
+
+var slashToEntity = strings.NewReplacer(
+	"/", "&sol;",
+)
+
 type Node struct {
 	Path    string
 	Name    string
@@ -85,7 +93,7 @@ func SetNamesFromPaths(t *Tree) {
 
 		t.Nodes[path] = Node{
 			Path:    node.Path,
-			Name:    parts[len(parts)-1],
+			Name:    entityToSlash.Replace(parts[len(parts)-1]),
 			Size:    node.Size,
 			Heat:    node.Heat,
 			HasHeat: node.HasHeat,
