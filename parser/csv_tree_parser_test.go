@@ -22,9 +22,9 @@ func TestMakeTree(t *testing.T) {
 			},
 			expTree: &treemap.Tree{
 				Nodes: map[string]treemap.Node{
-					"a":     {Path: "a"},
-					"a/b":   {Path: "a/b"},
-					"a/b/c": {Path: "a/b/c"},
+					"a":     {Path: "a", Name: "a"},
+					"a/b":   {Path: "a/b", Name: "b"},
+					"a/b/c": {Path: "a/b/c", Name: "c"},
 				},
 				To: map[string][]string{
 					"a":   {"a/b"},
@@ -36,17 +36,17 @@ func TestMakeTree(t *testing.T) {
 		{
 			name: "multiple deep nodes",
 			nodes: []treemap.Node{
-				{Path: "a/b/c"},
-				{Path: "a/b/c/d"},
-				{Path: "a/b/d"},
+				{Path: "a/b/c", Name: "c"},
+				{Path: "a/b/c/d", Name: "d"},
+				{Path: "a/b/d", Name: "d"},
 			},
 			expTree: &treemap.Tree{
 				Nodes: map[string]treemap.Node{
-					"a":       {Path: "a"},
-					"a/b":     {Path: "a/b"},
-					"a/b/c":   {Path: "a/b/c"},
-					"a/b/c/d": {Path: "a/b/c/d"},
-					"a/b/d":   {Path: "a/b/d"},
+					"a":       {Path: "a", Name: "a"},
+					"a/b":     {Path: "a/b", Name: "b"},
+					"a/b/c":   {Path: "a/b/c", Name: "c"},
+					"a/b/c/d": {Path: "a/b/c/d", Name: "d"},
+					"a/b/d":   {Path: "a/b/d", Name: "d"},
 				},
 				To: map[string][]string{
 					"a":     {"a/b"},
@@ -63,10 +63,10 @@ func TestMakeTree(t *testing.T) {
 			},
 			expTree: &treemap.Tree{
 				Nodes: map[string]treemap.Node{
-					"":       {Path: ""},
-					"/a":     {Path: "/a"},
-					"/a/b":   {Path: "/a/b"},
-					"/a/b/c": {Path: "/a/b/c"},
+					"":       {Path: "", Name: ""},
+					"/a":     {Path: "/a", Name: "a"},
+					"/a/b":   {Path: "/a/b", Name: "b"},
+					"/a/b/c": {Path: "/a/b/c", Name: "c"},
 				},
 				To: map[string][]string{
 					"":     {"/a"},
@@ -90,10 +90,10 @@ func TestMakeTree(t *testing.T) {
 			},
 			expTree: &treemap.Tree{
 				Nodes: map[string]treemap.Node{
-					"a":   {Path: "a"},
-					"a/b": {Path: "a/b"},
-					"b":   {Path: "b"},
-					"b/d": {Path: "b/d"},
+					"a":   {Path: "a", Name: "a"},
+					"a/b": {Path: "a/b", Name: "b"},
+					"b":   {Path: "b", Name: "b"},
+					"b/d": {Path: "b/d", Name: "d"},
 				},
 				To: map[string][]string{
 					"a":                  {"a/b"},
@@ -111,13 +111,31 @@ func TestMakeTree(t *testing.T) {
 			},
 			expTree: &treemap.Tree{
 				Nodes: map[string]treemap.Node{
-					"a":   {Path: "a", Name: "", Size: 0, Heat: 0, HasHeat: false},
-					"a/b": {Path: "a/b", Name: "", Size: 0, Heat: 0, HasHeat: false},
+					"a":   {Path: "a", Name: "a", Size: 0, Heat: 0, HasHeat: false},
+					"a/b": {Path: "a/b", Name: "b", Size: 0, Heat: 0, HasHeat: false},
 				},
 				To: map[string][]string{
 					"a": {"a/b"},
 				},
 				Root: "a",
+			},
+		},
+		{
+			name: "when slash html entities, then replace in names",
+			nodes: []treemap.Node{
+				{Path: "a&sol;/b&sol;/c&sol;"},
+			},
+			expTree: &treemap.Tree{
+				Nodes: map[string]treemap.Node{
+					"a&sol;":               {Path: "a&sol;", Name: "a/"},
+					"a&sol;/b&sol;":        {Path: "a&sol;/b&sol;", Name: "b/"},
+					"a&sol;/b&sol;/c&sol;": {Path: "a&sol;/b&sol;/c&sol;", Name: "c/"},
+				},
+				To: map[string][]string{
+					"a&sol;":        {"a&sol;/b&sol;"},
+					"a&sol;/b&sol;": {"a&sol;/b&sol;/c&sol;"},
+				},
+				Root: "a&sol;",
 			},
 		},
 	}
@@ -138,6 +156,8 @@ func TestMakeTree(t *testing.T) {
 					}
 				}
 			}
+
+			treemap.SetNamesFromPaths(tree)
 
 			// tree
 			if tc.expTree == nil && tree != nil {
@@ -181,6 +201,18 @@ func TestParseNodes(t *testing.T) {
 			expNodes: []treemap.Node{
 				{
 					Path:    "a\"b\"",
+					Size:    1,
+					Heat:    1,
+					HasHeat: true,
+				},
+			},
+		},
+		{
+			name: "when slash entity, then works",
+			in:   "a/b&sol;/c&sol;,1,1",
+			expNodes: []treemap.Node{
+				{
+					Path:    "a/b&sol;/c&sol;",
 					Size:    1,
 					Heat:    1,
 					HasHeat: true,
