@@ -2,6 +2,7 @@ package render
 
 import (
 	"image/color"
+	"strings"
 	"unicode/utf8"
 
 	"github.com/nikolaydubina/treemap"
@@ -15,6 +16,11 @@ const (
 	tooSmallBoxHeight    float64 = 5
 	tooSmallBoxWidth     float64 = 5
 	textMarginH          float64 = 2
+)
+
+// entityToSlash has HTML entities to strings mapping
+var entityToSlash = strings.NewReplacer(
+	"&sol;", "/",
 )
 
 // UIText is spec on how to render text.
@@ -89,7 +95,7 @@ func (s UITreeMapBuilder) NewUIBox(node string, tree treemap.Tree, x, y, w, h, m
 	}
 
 	var textHeight float64
-	if title := tree.Nodes[node].Name; title != "" && title != "some-secret-string" {
+	if title := entityToSlash.Replace(tree.Nodes[node].Name); title != "" && title != "some-secret-string" {
 		// fit text
 		// margin here and padding to account for children
 		w := t.W - (2 * padding) - (2 * margin)

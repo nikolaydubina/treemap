@@ -1,0 +1,33 @@
+.&sol; (61 kB | 25),61479,1.397940
+.&sol; (61 kB | 25)/.github&sol; (3.3 kB | 2),3322,0.301030
+.&sol; (61 kB | 25)/.github&sol; (3.3 kB | 2)/workflows&sol; (3.3 kB | 2),3322,0.301030
+.&sol; (61 kB | 25)/.github&sol; (3.3 kB | 2)/workflows&sol; (3.3 kB | 2)/release.yml (2.6 kB),2623,0
+.&sol; (61 kB | 25)/.github&sol; (3.3 kB | 2)/workflows&sol; (3.3 kB | 2)/tests.yml (699 B),699,0
+.&sol; (61 kB | 25)/cmd&sol; (15 kB | 3),15498,0.477121
+.&sol; (61 kB | 25)/cmd&sol; (15 kB | 3)/json.go (1.7 kB),1654,0
+.&sol; (61 kB | 25)/cmd&sol; (15 kB | 3)/root.go (7.6 kB),7614,0
+.&sol; (61 kB | 25)/cmd&sol; (15 kB | 3)/treemap.go (6.2 kB),6230,0
+.&sol; (61 kB | 25)/filesys&sol; (4.9 kB | 1),4927,0
+.&sol; (61 kB | 25)/filesys&sol; (4.9 kB | 1)/walk.go (4.9 kB),4927,0
+.&sol; (61 kB | 25)/print&sol; (15 kB | 4),15946,0.602060
+.&sol; (61 kB | 25)/print&sol; (15 kB | 4)/colors.go (767 B),767,0
+.&sol; (61 kB | 25)/print&sol; (15 kB | 4)/filetree.go (12 kB),12293,0
+.&sol; (61 kB | 25)/print&sol; (15 kB | 4)/json.go (337 B),337,0
+.&sol; (61 kB | 25)/print&sol; (15 kB | 4)/treemap.go (2.5 kB),2549,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7),8033,0.845098
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/file.go (2.8 kB),2806,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/file_test.go (1.1 kB),1120,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/print.go (588 B),588,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/serde.go (249 B),249,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/serde_test.go (449 B),449,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/tree.go (1.6 kB),1600,0
+.&sol; (61 kB | 25)/tree&sol; (8.0 kB | 7)/tree_test.go (1.2 kB),1221,0
+.&sol; (61 kB | 25)/util&sol; (3.4 kB | 2),3368,0.301030
+.&sol; (61 kB | 25)/util&sol; (3.4 kB | 2)/format.go (2.2 kB),2216,0
+.&sol; (61 kB | 25)/util&sol; (3.4 kB | 2)/format_test.go (1.2 kB),1152,0
+.&sol; (61 kB | 25)/.gitignore (50 B),50,0
+.&sol; (61 kB | 25)/go.mod (867 B),867,0
+.&sol; (61 kB | 25)/go.sum (4.9 kB),4862,0
+.&sol; (61 kB | 25)/LICENSE (1.1 kB),1090,0
+.&sol; (61 kB | 25)/main.go (95 B),95,0
+.&sol; (61 kB | 25)/README.md (3.4 kB),3421,0
