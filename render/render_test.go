@@ -22,8 +22,7 @@ func TestTextWidth(t *testing.T) {
 
 	for _, tc := range tests {
 		t.Run(tc.text, func(t *testing.T) {
-			w := textWidth(tc.text, 1.25)
-			if math.Abs(tc.expWidth-w) > 0.0001 {
+			if w := textWidth(tc.text, 1.25); math.Abs(tc.expWidth-w) > 0.0001 {
 				t.Errorf("wrong text width: exp(%f) != got(%f)", tc.expWidth, w)
 			}
 		})
