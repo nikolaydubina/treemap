@@ -2,6 +2,7 @@ package render
 
 import (
 	"image/color"
+	"unicode/utf8"
 
 	"github.com/nikolaydubina/treemap"
 	"github.com/nikolaydubina/treemap/layout"
@@ -178,7 +179,7 @@ func fitText(text string, fontSize int, W float64) (scale float64, h float64) {
 }
 
 func textWidth(text string, fontSize float64) float64 {
-	return fontSize * float64(len([]rune(text))) * textWidthMultiplier
+	return fontSize * float64(utf8.RuneCountInString(text)) * textWidthMultiplier
 }
 
 func textHeight(text string, fontSize float64) float64 {
