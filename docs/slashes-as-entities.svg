@@ -1,0 +1,390 @@
+
+<svg 
+	xmlns="http://www.w3.org/2000/svg" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	viewBox="0 0 1028.000000 640.000000" 
+	style="background: white none repeat scroll 0% 0%;"
+>
+
+<g>
+	<rect x="36.000000" y="36.000000" width="956.000000" height="568.000000" style="fill: rgb(5, 48, 97);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(44.000000,51.600000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">./ (61 kB | 25)</text>
+		
+</g>
+
+
+<g>
+	<rect x="873.584199" y="293.369735" width="110.415801" height="228.364476" style="fill: rgb(219, 107, 84);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(881.584199,308.969735) scale(0.218555)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">.github/ (3.3 kB | 2)/workflows/ (3.3 kB | 2)</text>
+		
+</g>
+
+
+<g>
+	<rect x="44.000000" y="334.692431" width="476.863319" height="261.307569" style="fill: rgb(249, 187, 157);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(52.000000,350.292431) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">cmd/ (15 kB | 3)</text>
+		
+</g>
+
+
+<g>
+	<rect x="815.929442" y="57.600000" width="168.070558" height="227.769735" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(823.929442,73.200000) scale(0.416860)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">filesys/ (4.9 kB | 1)/walk.go (4.9 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="44.000000" y="57.600000" width="476.863319" height="269.092431" style="fill: rgb(255, 226, 218);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(52.000000,73.200000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">print/ (15 kB | 4)</text>
+		
+</g>
+
+
+<g>
+	<rect x="528.863319" y="57.600000" width="279.066123" height="227.769735" style="fill: rgb(207, 228, 240);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(536.863319,73.200000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">tree/ (8.0 kB | 7)</text>
+		
+</g>
+
+
+<g>
+	<rect x="753.528685" y="293.369735" width="112.055514" height="228.364476" style="fill: rgb(219, 107, 84);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(761.528685,308.969735) scale(0.555877)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(0, 0, 0); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">util/ (3.4 kB | 2)</text>
+		
+</g>
+
+
+<g>
+	<rect x="975.549790" y="578.391107" width="8.450210" height="17.608893" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+</g>
+
+
+<g>
+	<rect x="877.188882" y="529.734211" width="90.360909" height="66.265789" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(885.188882,545.334211) scale(0.553281)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">go.mod (867 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="528.863319" y="293.369735" width="216.665366" height="174.335428" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(536.863319,308.969735) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">go.sum (4.9 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="753.528685" y="529.734211" width="115.660196" height="66.265789" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(761.528685,545.334211) scale(0.648829)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">LICENSE (1.1 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="975.549790" y="529.734211" width="8.450210" height="40.656896" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+</g>
+
+
+<g>
+	<rect x="528.863319" y="475.705163" width="216.665366" height="120.294837" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(536.863319,491.305163) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">README.md (3.4 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="881.584199" y="314.969735" width="94.415801" height="155.258043" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(889.584199,330.569735) scale(0.408416)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">release.yml (2.6 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="881.584199" y="478.227779" width="94.415801" height="35.506432" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(889.584199,493.827779) scale(0.480489)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">tests.yml (699 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="282.347484" y="545.711274" width="230.515835" height="42.288726" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(290.347484,561.311274) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">json.go (1.7 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="52.000000" y="356.292431" width="222.347484" height="231.707569" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(60.000000,371.892431) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">root.go (7.6 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="282.347484" y="356.292431" width="230.515835" height="181.418843" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(290.347484,371.892431) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">treemap.go (6.2 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="413.453454" y="251.895923" width="66.622614" height="66.796508" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(421.453454,267.495923) scale(0.310188)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">colors.go (767 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="52.000000" y="79.200000" width="353.453454" height="239.492431" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(60.000000,94.800000) scale(1.000000)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">filetree.go (12 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="488.076069" y="251.895923" width="24.787250" height="66.796508" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(496.076069,267.495923) scale(0.061023)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">json.go (337 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="413.453454" y="79.200000" width="99.409865" height="164.695923" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(421.453454,94.800000) scale(0.457291)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">treemap.go (2.5 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="536.863319" y="79.200000" width="140.676377" height="123.301016" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(544.863319,94.800000) scale(0.811695)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">file.go (2.8 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="685.539696" y="148.605362" width="114.389746" height="55.664214" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(693.539696,164.205362) scale(0.488044)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">file_test.go (1.1 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="685.539696" y="212.269576" width="47.960475" height="65.100160" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(693.539696,227.869576) scale(0.208076)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">print.go (588 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="741.500171" y="259.292458" width="58.429271" height="18.077278" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+</g>
+
+
+<g>
+	<rect x="741.500171" y="212.269576" width="58.429271" height="39.022882" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(749.500171,227.869576) scale(0.210463)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">serde_test.go (449 B)</text>
+		
+</g>
+
+
+<g>
+	<rect x="536.863319" y="210.501016" width="140.676377" height="66.868719" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(544.863319,226.101016) scale(0.811695)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">tree.go (1.6 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="685.539696" y="79.200000" width="114.389746" height="61.405362" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(693.539696,94.800000) scale(0.488044)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">tree_test.go (1.2 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="761.528685" y="314.969735" width="96.055514" height="128.042185" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(769.528685,330.569735) scale(0.463284)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">format.go (2.2 kB)</text>
+		
+</g>
+
+
+<g>
+	<rect x="761.528685" y="451.011920" width="96.055514" height="62.722291" style="fill: rgb(103, 0, 31);opacity:1;fill-opacity:1.00;stroke:rgb(128,128,128);stroke-width:1px;stroke-opacity:1.00;" />
+	
+<text 
+	data-notex="1" 
+	text-anchor="start"
+	transform="translate(769.528685,466.611920) scale(0.362570)"
+	style="font-family: Open Sans, verdana, arial, sans-serif !important; font-size: 12px; fill: rgb(255, 255, 255); fill-opacity: 1.00; white-space: pre;" 
+	data-math="N">format_test.go (1.2 kB)</text>
+		
+</g>
+
+</svg>
