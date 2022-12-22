@@ -17,6 +17,7 @@ const (
 	textMarginH          float64 = 2
 )
 
+// entityToSlash has HTML entities to strings mapping
 var entityToSlash = strings.NewReplacer(
 	"&sol;", "/",
 )
