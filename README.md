@@ -6,6 +6,8 @@
 [![codecov](https://codecov.io/gh/nikolaydubina/treemap/branch/main/graph/badge.svg?token=h3S894POFO)](https://codecov.io/gh/nikolaydubina/treemap)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nikolaydubina/treemap)](https://goreportcard.com/report/github.com/nikolaydubina/treemap)
 
+Uses "Squarified Treemaps" (Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000) algorithm.
+
 ```bash
 $ go install github.com/nikolaydubina/treemap/cmd/treemap@latest 
 $ echo '
