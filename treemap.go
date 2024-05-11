@@ -14,8 +14,8 @@ type Node struct {
 }
 
 type Tree struct {
-	Nodes map[string]Node
-	To    map[string][]string
+	Nodes map[string]Node		// node identifier (path) -> Node
+	To    map[string][]string	// node identifier (path) -> list of node identifiers (paths) for edges from it (to children)
 	Root  string
 }
 
