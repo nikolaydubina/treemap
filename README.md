@@ -10,7 +10,7 @@
 Uses "Squarified Treemaps" (Mark Bruls, Kees Huizing, and Jarke J. van Wijk., 2000) algorithm.
 
 ```bash
-$ go install github.com/nikolaydubina/treemap/cmd/treemap@latest 
+$ go install github.com/nikolaydubina/treemap/cmd/treemap@latest
 $ echo '
 Africa/Algeria,33333216,72
 Africa/Angola,12420476,42
@@ -112,3 +112,24 @@ Large dimensions and large tree (e.g. `github.com/golang/go`)
 $ ... | treemap -w 4096 -h 4096 > out.svg
 ```
 ![example-large](./docs/find-src-go-dir.svg)
+
+## Appendix C: Known Issues
+
+### The entire treemap is a black box when viewed from Jenkins
+
+It's convenient to create treemap svg reports in a Jenkins jobs, because you can
+browse the job's "artifacts" from your browser.  However, out of the box, Jenkin's
+[Content Security Policy](https://www.jenkins.io/doc/book/security/configuring-content-security-policy/)
+prevents inline styles from being applied. Instead of your treemap, you'll see
+a giant black rectangle.
+
+If you look at the javascript console in the developer tools, you will see:
+```
+Refused to apply inline style because it violates the following
+Content Security Policy directive: "style-src 'self'".
+```
+
+You can relax Jenkin's CSP rules by following the examples at:
+* [Jenkins error - Blocked script execution in <URL>. because the document's frame is sandboxed and the 'allow-scripts' permission is not set](https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame)
+* [https://stackoverflow.com/questions/35783964/jenkins-html-publisher-plugin-no-css-is-displayed-when-report-is-viewed-in-j](https://stackoverflow.com/questions/35783964/jenkins-html-publisher-plugin-no-css-is-displayed-when-report-is-viewed-in-j)
+
