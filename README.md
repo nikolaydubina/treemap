@@ -1,9 +1,5 @@
 # 🍬 Pretty Treemaps
 
-<p align="center">
-  ✨ Sponsored by <a href="https://ndx.one/?ct=github">NDX Technologies</a>
-</p>
-
 > _Looking to run this for Go coverage? Check https://github.com/nikolaydubina/go-cover-treemap_
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/nikolaydubina/treemap.svg)](https://pkg.go.dev/github.com/nikolaydubina/treemap)
